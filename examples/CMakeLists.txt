@@ -1,1 +1,1 @@
-add_subdirectory(maintest)
+add_subdirectory(mystictest)
