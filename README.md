@@ -13,7 +13,7 @@ Very pre-alpha. Do not use for any serious projects yet, as the API is *heavily*
 * DirectX 11
 
 ## External Tools
-TeaPacket uses a custom python script to manually handle external tools. Do not worry about downloading these.
+TeaPacket uses a custom python script to automatically handle external tools. Do not worry about downloading these.
 ### Windows
 * [glslangValidator](https://github.com/KhronosGroup/glslang) and [SPIRV-Cross](https://github.com/KhronosGroup/SPIRV-Cross) for GLSL > HLSL Shader Compilation
 
