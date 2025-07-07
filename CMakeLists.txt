@@ -71,7 +71,6 @@ function(TP_BuildAssets tp_asset_path build_path)
 endfunction()
 
 if (DEFINED TP_ASSET_DIR})
-    message("AUTOBUILD")
     TP_BuildAssets(${TP_ASSET_DIR} ${CMAKE_BINARY_DIR})
 endif ()
 
