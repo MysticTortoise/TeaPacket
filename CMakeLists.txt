@@ -2,6 +2,11 @@
 cmake_minimum_required(VERSION 3.31)
 project(TeaPacket)
 
+option(TEAPACKET_BUILD_EXAMPLES "Build example programs")
+
+if(NOT DEFINED TP_PLATFORM_DIR)
+    set(TP_PLATFORM_DIR Windows)
+endif ()
 STRING(REGEX REPLACE "\\\\" "/" TP_PLATFORM_DIR ${TP_PLATFORM_DIR})
 if(NOT "${TP_PLATFORM_DIR}" MATCHES "/")
     set(TP_PLATFORM_DIR ${CMAKE_CURRENT_SOURCE_DIR}/platforms/${TP_PLATFORM_DIR}/)
@@ -23,14 +28,6 @@ file(GLOB_RECURSE sources source/*.c*)
 # Add Library Target
 add_library(TeaPacket STATIC ${sources})
 add_subdirectory(${TP_PLATFORM_DIR})
-
-add_custom_target(
-        py_prebuild ALL
-        COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/prebuild/prebuild.py ${CMAKE_CURRENT_SOURCE_DIR} ${TP_PLATFORM_DIR} ${TP_ASSETS_DIR} ${CMAKE_BINARY_DIR}
-        COMMENT "Running prebuild script..."
-        USES_TERMINAL
-)
-add_dependencies(TeaPacket py_prebuild)
 
 # Set #define s
 target_compile_definitions(TeaPacket PUBLIC
@@ -60,3 +57,25 @@ if(NOT TP_DEBUG)
     message("IPO ON")
     set_property(TARGET TeaPacket PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
 endif()
+
+set(TEAPACKET_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
+function(TP_BuildAssets tp_asset_path build_path)
+    add_custom_target(
+            py_prebuild ALL
+            COMMAND python ${TEAPACKET_SOURCE_DIR}/prebuild/prebuild.py ${TEAPACKET_SOURCE_DIR} ${TP_PLATFORM_DIR} ${tp_asset_path} ${build_path}
+            COMMENT "Running prebuild script..."
+            USES_TERMINAL
+    )
+    add_dependencies(TeaPacket py_prebuild)
+endfunction()
+
+if (DEFINED TP_ASSET_DIR})
+    message("AUTOBUILD")
+    TP_BuildAssets(${TP_ASSET_DIR} ${CMAKE_BINARY_DIR})
+endif ()
+
+
+if(${TEAPACKET_BUILD_EXAMPLES})
+    add_subdirectory(examples)
+endif ()
