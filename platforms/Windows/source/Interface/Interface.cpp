@@ -2,9 +2,9 @@
 // Windows-Specific Interface implementation.
 //
 #include "TeaPacket/Interface/Interface.hpp"
-#include "TeaPacket/Interface/Pl_Interface.hpp"
+#include "Interface/Pl_Interface.hpp"
 #include "TeaPacket/Graphics/Display.hpp"
-#include "PlatformInterface.hpp"
+#include "WindowsInterface.hpp"
 
 #include <comdef.h>
 #include <stdexcept>
@@ -19,6 +19,16 @@ LRESULT WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         PostQuitMessage(0);
         Interface::QueueQuit();
         return 0;
+    case WM_SIZE:
+        for (Graphics::Display display : Graphics::Display::Displays)
+        {
+            if (display.platformDisplay.windowHandle == hWnd)
+            {
+                int width = LOWORD(lParam);
+                int height = HIWORD(lParam);
+                display.Resize(static_cast<unsigned short>(width), static_cast<unsigned short>(height));
+            }
+        }
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
@@ -36,7 +46,7 @@ bool Interface::Pl_Initialize()
     windowClass.hInstance = Platform::instanceHandle;
     windowClass.hIcon = 0;
     windowClass.hCursor = LoadCursor(NULL, IDC_ARROW);
-    windowClass.hbrBackground = static_cast<HBRUSH>(GetStockObject(LTGRAY_BRUSH));
+    windowClass.hbrBackground = 0;
     windowClass.lpszMenuName = NULL;
     windowClass.lpszClassName = "TeaPacket_MainWindowClass";
 

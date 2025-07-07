@@ -1,5 +1,5 @@
 #include "TeaPacket/Graphics/Graphics.hpp"
-#include "TeaPacket/Graphics/Pl_Graphics.hpp"
+#include "Graphics/Pl_Graphics.hpp"
 
 using namespace TeaPacket;
 
@@ -27,6 +27,12 @@ void Graphics::FinishRenderToViewport()
     Pl_FinishRenderToViewport();
     currentViewport = nullptr;
 }
+
+void Graphics::RenderViewportToDisplay(Display& display, Viewport& viewport)
+{
+    Pl_RenderViewportToDisplay(display, viewport);
+}
+
 
 void Graphics::ClearScreen(const Color4& color)
 {

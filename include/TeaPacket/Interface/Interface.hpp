@@ -8,7 +8,7 @@
 namespace TeaPacket::Interface
 {
     /// Initializes application information.
-    void Initialize();
+    bool Initialize();
     /// Updates any core application info and handles events.
     void Tick();
     /// De-Initializes the application's data.

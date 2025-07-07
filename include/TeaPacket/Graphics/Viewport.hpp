@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "Platform/Graphics/PlatformViewport.hpp"
 
 namespace TeaPacket::Graphics
@@ -15,15 +17,18 @@ namespace TeaPacket::Graphics
         PlatformViewport platformViewport;
 
         Viewport(unsigned short width, unsigned short height);
+        void Initialize();
         void DeInitialize();
 
     private:
-        Pl_DeInitialize();
+        void Pl_Initialize();
+        void Pl_DeInitialize();
 
     public:
-        static Viewport CreateViewport(unsigned short width, unsigned short height, Display* display = nullptr);
+        static Viewport CreateViewport(unsigned short width, unsigned short height);
+
+        inline static std::vector<Viewport> Viewports = std::vector<Viewport>();
 
     private:
-        static Viewport Pl_CreateViewport(unsigned short width, unsigned short height, Display* display);
     };
 }

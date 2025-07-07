@@ -2,6 +2,8 @@
 
 #include <algorithm>
 #include <stdexcept>
+#include <array>
+#include <string>
 
 #define TP_VEC_ALIAS(name, index) \
 T& name() { return _values[index]; static_assert(index <= i, "Attempt to use an alias that doesn't exist for this TeaPacket Vector type! Alias index: " #index "." ); }; \
@@ -74,13 +76,33 @@ namespace TeaPacket::Math
         operator Vector<O,s>()
         {
             Vector<O,s> vec;
-            constexpr unsigned char minsize = std::min(s,i);
+            constexpr unsigned char minsize = (std::min)(s,i);
             for (unsigned char j = 0; j < minsize; j++)
             {
                 vec[j] = this[j];
             }
         }
 
+        std::array<T,i> GetAsArray() const
+        {
+            return std::array<T,i>(_values);
+        }
+
+        operator std::string() const
+        {
+            std::string str = "{";
+            for (unsigned char j = 0; j < i; j++)
+            {
+                str += std::to_string(_values[j]) + ",";
+            }
+            str.back() = '}';
+            return str;
+        }
+
+        Vector()
+        {
+            _values = {};
+        }
 
         Vector(std::initializer_list<T> il)
         {

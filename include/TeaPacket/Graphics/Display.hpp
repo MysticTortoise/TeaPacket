@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "Platform/Interface/PlatformDisplay.hpp"
+#include "../../../platforms/Windows/include/Platform/Graphics/PlatformDisplay.hpp"
 #include "TeaPacket/Graphics/Viewport.hpp"
 
 
@@ -21,18 +21,20 @@ namespace TeaPacket::Graphics
 
         PlatformDisplay platformDisplay; ///< Private platform-dependent data.
 
+        bool Resize(unsigned short newWidth, unsigned short newHeight);
+
         /// De-initializes the Display and its graphics.
         void DeInitialize();
 
     private:
-        Viewport viewport;
-
         /// Creates (but does not initialize) a Display. Use Display::CreateDisplay instead.
         /** This function exists to populate the variables of the Display object. **/
         Display(unsigned short width, unsigned short height, const std::string& name);
 
+        bool Pl_Resize(unsigned short newWidth, unsigned short newHeight);
+
         /// Platform-Specific De-Initialize function.
-        void Pl_DeInitialize() const;
+        void Pl_DeInitialize();
     public:
         /// A list of all displays in existence. Displays MUST be registered to this list upon creation.
         inline static std::vector<Display> Displays = std::vector<Display>();

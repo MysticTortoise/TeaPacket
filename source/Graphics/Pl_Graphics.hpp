@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "TeaPacket/Graphics/Display.hpp"
+#include "TeaPacket/Graphics/Viewport.hpp"
 #include "TeaPacket/Graphics/Color4.hpp"
 
 namespace TeaPacket::Graphics
@@ -17,6 +17,8 @@ namespace TeaPacket::Graphics
     void Pl_BeginRenderToViewport(Viewport& display);
     /// Platform-specific implementation of FinishRenderToDisplay();
     void Pl_FinishRenderToViewport();
+
+    void Pl_RenderViewportToDisplay(Display& display, Viewport& viewport);
 
     void Pl_ClearScreen(const Color4& color);
 

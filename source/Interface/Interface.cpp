@@ -2,7 +2,7 @@
 // Global Interface Functions
 //
 #include "TeaPacket/Interface/Interface.hpp"
-#include "TeaPacket/Interface/Pl_Interface.hpp"
+#include "Interface/Pl_Interface.hpp"
 
 static bool doQuit = false;
 

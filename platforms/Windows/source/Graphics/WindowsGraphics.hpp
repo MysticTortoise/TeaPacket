@@ -5,6 +5,6 @@
 
 namespace TeaPacket::Graphics
 {
-    Microsoft::WRL::ComPtr<ID3D11Device> device;
-    Microsoft::WRL::ComPtr<ID3D11DeviceContext> deviceContext;
+    extern Microsoft::WRL::ComPtr<ID3D11Device> device;
+    extern Microsoft::WRL::ComPtr<ID3D11DeviceContext> deviceContext;
 }
