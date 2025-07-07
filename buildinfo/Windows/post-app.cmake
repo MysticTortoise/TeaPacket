@@ -1,1 +1,0 @@
-target_link_libraries(TeaPacket d3d11.lib)
