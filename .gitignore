@@ -31,5 +31,7 @@
 *.out
 *.app
 
-doxygen/
+doxygen/private/
+doxygen/public/
+doxygen/generate.bat
 build/

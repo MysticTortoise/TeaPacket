@@ -6,18 +6,23 @@
 
 namespace TeaPacket::Graphics
 {
-    class Display;
 
+    /// Represents a singular renderable area. These can be used as textures, or blit to Displays to present to the user.
     class Viewport
     {
     public:
-        unsigned short width;
-        unsigned short height;
+        unsigned short width; ///< The width of the viewport.
+        unsigned short height; ///< The height of the viewport.
 
-        PlatformViewport platformViewport;
+        PlatformViewport platformViewport; ///< Platform data.
 
+        /// Creates a Viewport, but does not Initialize it.
+        /// @param width The width of the Viewport.
+        /// @param height The height of the Viewport
         Viewport(unsigned short width, unsigned short height);
+        /// Initializes the Viewport using its parameters.
         void Initialize();
+        /// De-Initializes the Viewport. Must be called.
         void DeInitialize();
 
     private:
@@ -25,8 +30,13 @@ namespace TeaPacket::Graphics
         void Pl_DeInitialize();
 
     public:
+        /// Creates and initializes a Viewport
+        /// @param width The width of the Viewport to be created.
+        /// @param height The height of the Viewport to be created.
+        /// @return The Viewport that was created.
         static Viewport CreateViewport(unsigned short width, unsigned short height);
 
+        /// A list of all existing viewports.
         inline static std::vector<Viewport> Viewports = std::vector<Viewport>();
 
     private:

@@ -28,8 +28,10 @@ Vector<T,i> operator OP (const Vector<T,s>& other) const \
     return vec OP##= other; \
 }
 
+/// Math related functions and classes for TeaPacket
 namespace TeaPacket::Math
 {
+    /// A template class for all base Vector types.
     template<typename T, unsigned char i>
     class Vector
     {
@@ -49,12 +51,23 @@ namespace TeaPacket::Math
         TP_VEC_ALIAS(u,0)
         TP_VEC_ALIAS(v,1)
 
-        TP_VEC_MATH_OPERATOR(+)
-        TP_VEC_MATH_OPERATOR(-)
-        TP_VEC_MATH_OPERATOR(*)
-        TP_VEC_MATH_OPERATOR(/)
-        TP_VEC_MATH_OPERATOR(%)
+        /// Adds one vector to another.
+        /** All vector math operations are simply the operations applied on all members of that vector. \n
+         * For example, addition adds all members together, subtraction subtracts all the 2nd Vector's values
+         * from the first Vector's, etc.**/
+        TP_VEC_MATH_OPERATOR(+) ///< Adds two vectors together.
+        /// Subtracts one vector from another.
+        TP_VEC_MATH_OPERATOR(-) ///< Subtracts two vectors.
+        /// Multiplies one vector with another.
+        TP_VEC_MATH_OPERATOR(*) ///< Multiplies two vectors.
+        /// Divides one vector from another.
+        TP_VEC_MATH_OPERATOR(/) ///< Divides two vectors.
+        /// Modulos one vector from another.
+        TP_VEC_MATH_OPERATOR(%) ///< Modulos two vectors.
 
+        /// Check if two Vectors of the same type have equal values.
+        /// @param other THe Vector to compare to this one.
+        /// @return Whether the two Vectors have equal values.
         bool operator==(Vector<T,i> const& other) const
         {
             for (unsigned char j = 0; j < i; j++)
@@ -67,11 +80,15 @@ namespace TeaPacket::Math
             return true;
         }
 
+        /// Check if two Vectors of the same type do not have equal values.
+        /// @param other The Vector to compare to this one.
+        /// @return Whether the two Vectors aren't equal or not.
         bool operator!=(Vector<T,i> const& other) const
         {
             return !(this==other);
         }
 
+        /// Convert a Vector of one type into another type.
         template<typename O, unsigned char s>
         operator Vector<O,s>()
         {
@@ -83,11 +100,13 @@ namespace TeaPacket::Math
             }
         }
 
+        /// Get a copy of the Vector as a plain std::array.
         std::array<T,i> GetAsArray() const
         {
             return std::array<T,i>(_values);
         }
 
+        /// Convert the Vector to a string (for printing or serialization purposes)
         operator std::string() const
         {
             std::string str = "{";
@@ -99,17 +118,20 @@ namespace TeaPacket::Math
             return str;
         }
 
+        /// Default initializer, setting all values to garbage data.
         Vector()
         {
             _values = {};
         }
 
+        /// Initializer list, sets all values to the given values in the list.
         Vector(std::initializer_list<T> il)
         {
             std::copy(il.begin(), il.end(), _values);
         }
 
     private:
+        /// The internal array that stores the values.
         T _values[i];
 
     };
