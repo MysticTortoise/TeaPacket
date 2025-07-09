@@ -7,15 +7,12 @@ Very pre-alpha. Do not use for any serious projects yet, as the API is *heavily*
 * Python
 * A valid C++20 compiler
 
-## Dependencies
-### Windows
-* Windows SDK
-* DirectX 11
+TeaPacket uses a custom python script to automatically handle external tools. Do not worry about downloading any other tools.
+Any items listed under "External Tools" in platform READMEs do not need to be downloaded.
 
-## External Tools
-TeaPacket uses a custom python script to automatically handle external tools. Do not worry about downloading these.
-### Windows
-* [glslangValidator](https://github.com/KhronosGroup/glslang) and [SPIRV-Cross](https://github.com/KhronosGroup/SPIRV-Cross) for GLSL > HLSL Shader Compilation
+## Official Platforms:
+* [Windows](platforms/Windows/README.md)
+
 
 ## Instructions
 To build, run cmake with `TP_PLATFORM_DIR` set to a directory or platform. For official platforms, simply set the platform name (eg. `Windows`). For external platforms, it must be set to the directory of the platform.
@@ -34,4 +31,4 @@ Making a platform is simple. You must have:
   * Note: For functions that are not implemented yet, use the `TeaPacket::Error::FunctionNotImplemented` exception.
 * Proper definitions for all `Platform___` classes needed by the framework.
 
-It is recommended to check out the `Windows` official platform for reference.
+It is recommended to check out the [Windows](platforms/Windows/README.md) official platform for reference.
