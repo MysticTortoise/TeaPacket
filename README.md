@@ -11,7 +11,7 @@ TeaPacket uses a custom python script to automatically handle external tools. Do
 Any items listed under "External Tools" in platform READMEs do not need to be downloaded.
 
 ## Official Platforms:
-* [Windows](platforms/Windows/README.md)
+* [Windows](platforms/Windows)
 
 
 ## Instructions
