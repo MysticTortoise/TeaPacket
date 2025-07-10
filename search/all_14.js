@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['x_0',['x',['../classTeaPacket_1_1Math_1_1Vector.html#af51e17e4b4a86f1a13308b5b4895f8cb',1,'TeaPacket::Math::Vector::x()'],['../classTeaPacket_1_1Math_1_1Vector.html#ab0ef80aa306dda088dea592753e638a2',1,'TeaPacket::Math::Vector::x() const']]]
+  ['w_0',['w',['../classTeaPacket_1_1Math_1_1Vector.html#ac08fbbf4d3d7b372759ed6a5b442c80d',1,'TeaPacket::Math::Vector::w()'],['../classTeaPacket_1_1Math_1_1Vector.html#adf66251ccadce3b24136af08f31d498f',1,'TeaPacket::Math::Vector::w() const']]],
+  ['width_1',['width',['../classTeaPacket_1_1Graphics_1_1Display.html#ab095d5a02e5dd4387ab71b92774a8edc',1,'TeaPacket::Graphics::Display::width'],['../classTeaPacket_1_1Graphics_1_1Texture.html#a9343e472ea7be3e47798c9a65d18cf06',1,'TeaPacket::Graphics::Texture::width'],['../classTeaPacket_1_1Graphics_1_1Viewport.html#a8566c7235392c93d1607c1db50f8f804',1,'TeaPacket::Graphics::Viewport::width']]],
+  ['wraptype_2',['wrapType',['../classTeaPacket_1_1Graphics_1_1Texture.html#aa532f2ab87c0bb9b75a129d873f7b596',1,'TeaPacket::Graphics::Texture']]]
 ];

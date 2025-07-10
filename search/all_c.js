@@ -1,11 +1,17 @@
 var searchData=
 [
-  ['platformdisplay_0',['platformDisplay',['../classTeaPacket_1_1Graphics_1_1Display.html#a8f6ff642f478fc9504c5f111e6112d9b',1,'TeaPacket::Graphics::Display']]],
-  ['platformmodel_1',['platformModel',['../classTeaPacket_1_1Graphics_1_1Model.html#ab509db4ea6f0a51fc3445d7ca93d70e5',1,'TeaPacket::Graphics::Model']]],
-  ['platformshader_2',['platformShader',['../classTeaPacket_1_1Graphics_1_1Shader.html#a55181cb6728cd29f548703648a5f9e3b',1,'TeaPacket::Graphics::Shader']]],
-  ['platformtexture_3',['platformTexture',['../classTeaPacket_1_1Graphics_1_1Texture.html#af8c9398917b8d5824e7377533a93f50e',1,'TeaPacket::Graphics::Texture']]],
-  ['platformviewport_4',['platformViewport',['../classTeaPacket_1_1Graphics_1_1Viewport.html#a5b5ada357580e9163917bb131e6422e2',1,'TeaPacket::Graphics::Viewport']]],
-  ['presentdisplay_5',['PresentDisplay',['../classTeaPacket_1_1Graphics_1_1Display.html#a355cf89eb2cd8c0b3c927a3ebb360398',1,'TeaPacket::Graphics::Display']]],
-  ['print_6',['Print',['../namespaceTeaPacket.html#aef0873d3c8fb3a4372d1b1f6b28fb39b',1,'TeaPacket::Print(const std::string &amp;message)'],['../namespaceTeaPacket.html#ace6f0c516428e41d56b894a01d0cd505',1,'TeaPacket::Print(const T &amp;val)'],['../namespaceTeaPacket.html#affe385aeafe514d28419caccb9d1dc0e',1,'TeaPacket::Print(const char &amp;val)'],['../namespaceTeaPacket.html#a1ae9416af16e9daa5860b48cf749bd53',1,'TeaPacket::Print(const T &amp;val)'],['../namespaceTeaPacket.html#a5d5ec0f5a058961d919dc5c3c76567b4',1,'TeaPacket::Print(const char *const &amp;message)'],['../namespaceTeaPacket.html#aaf8f2dd9a9d9d6c679e7a3acd9c6c727',1,'TeaPacket::Print(char *const &amp;message)']]],
-  ['printline_7',['PrintLine',['../namespaceTeaPacket.html#ad81468809970329b19662dcc6c927e32',1,'TeaPacket']]]
+  ['operator_20std_3a_3astring_0',['string',['../classTeaPacket_1_1Math_1_1Vector.html#a4ac67cdb1c63e6ba2fddd1ea2fab3e44',1,'TeaPacket::Math::Vector']]],
+  ['operator_20vector_3c_20o_2c_20s_20_3e_1',['operator Vector&lt; O, s &gt;',['../classTeaPacket_1_1Math_1_1Vector.html#ad47bf1df4e74d85dc302087c000e04eb',1,'TeaPacket::Math::Vector']]],
+  ['operator_21_3d_2',['operator!=',['../classTeaPacket_1_1Math_1_1Vector.html#a6c49190cbb159cbcead5de26899494ea',1,'TeaPacket::Math::Vector']]],
+  ['operator_25_3',['operator%',['../classTeaPacket_1_1Math_1_1Vector.html#a281b9661dc238cf65065e4436a4aa85b',1,'TeaPacket::Math::Vector']]],
+  ['operator_25_3d_4',['operator%=',['../classTeaPacket_1_1Math_1_1Vector.html#a17fab8e815dcd03c73ad5d47ea86de16',1,'TeaPacket::Math::Vector']]],
+  ['operator_2a_5',['operator*',['../classTeaPacket_1_1Math_1_1Vector.html#af245f7af9ef5a3c6ebd17472538baa4e',1,'TeaPacket::Math::Vector']]],
+  ['operator_2a_3d_6',['operator*=',['../classTeaPacket_1_1Math_1_1Vector.html#ac5ffd9f723866b9444fe64fa5a0b99a3',1,'TeaPacket::Math::Vector']]],
+  ['operator_2b_7',['operator+',['../classTeaPacket_1_1Math_1_1Vector.html#ad677f6599be007927c97ef0726a5789b',1,'TeaPacket::Math::Vector']]],
+  ['operator_2b_3d_8',['operator+=',['../classTeaPacket_1_1Math_1_1Vector.html#a3db9e2d1debd8be9e7e193aea1786793',1,'TeaPacket::Math::Vector']]],
+  ['operator_2d_9',['operator-',['../classTeaPacket_1_1Math_1_1Vector.html#a62553fd5f079b644c91359d279d10bd8',1,'TeaPacket::Math::Vector']]],
+  ['operator_2d_3d_10',['operator-=',['../classTeaPacket_1_1Math_1_1Vector.html#a851c4b39c1a7880e04f68ae5710b8695',1,'TeaPacket::Math::Vector']]],
+  ['operator_2f_11',['operator/',['../classTeaPacket_1_1Math_1_1Vector.html#a4f8023fac589377a898f6658dade07ae',1,'TeaPacket::Math::Vector']]],
+  ['operator_2f_3d_12',['operator/=',['../classTeaPacket_1_1Math_1_1Vector.html#aede9caad16701862d5d348c6cc1602cc',1,'TeaPacket::Math::Vector']]],
+  ['operator_3d_3d_13',['operator==',['../classTeaPacket_1_1Math_1_1Vector.html#a56e4d48e4d3c079e47bf002530774735',1,'TeaPacket::Math::Vector']]]
 ];

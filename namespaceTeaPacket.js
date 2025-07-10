@@ -15,6 +15,11 @@ var namespaceTeaPacket =
       [ "initialized", "namespaceTeaPacket_1_1Interface.html#aefc8282780d2df086ac97d72c80ac40d", null ]
     ] ],
     [ "Math", "namespaceTeaPacket_1_1Math.html", "namespaceTeaPacket_1_1Math" ],
+    [ "Memory", "namespaceTeaPacket_1_1Memory.html", [
+      [ "SwapEndian16", "namespaceTeaPacket_1_1Memory.html#ab054aad42058dbe1130cfc44e0e36781", null ],
+      [ "SwapEndian32", "namespaceTeaPacket_1_1Memory.html#a5059ab3ac43d425d561635ac7062de37", null ],
+      [ "SwapEndian64", "namespaceTeaPacket_1_1Memory.html#af1dfa63fd73a3e0a2c1accbfde073d0a", null ]
+    ] ],
     [ "DeInitialize", "namespaceTeaPacket.html#aa1597e0dae23f6f1aa8d12d10273a016", null ],
     [ "Initialize", "namespaceTeaPacket.html#a90b60e8536d036971d771f18d390cf3a", null ],
     [ "Print", "namespaceTeaPacket.html#aaf8f2dd9a9d9d6c679e7a3acd9c6c727", null ],

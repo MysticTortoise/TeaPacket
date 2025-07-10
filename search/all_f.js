@@ -1,19 +1,10 @@
 var searchData=
 [
-  ['setparameter_0',['SetParameter',['../classTeaPacket_1_1Graphics_1_1Shader.html#af5fad45617493318a4e19b47bdf1fcae',1,'TeaPacket::Graphics::Shader']]],
-  ['setrendertarget_1',['SetRenderTarget',['../namespaceTeaPacket_1_1Graphics.html#a03fe7ee807b79ce97279b9c3436b5a74',1,'TeaPacket::Graphics::SetRenderTarget(Viewport &amp;viewport)'],['../namespaceTeaPacket_1_1Graphics.html#a379c95526a0b0b93bd07840ca603d582',1,'TeaPacket::Graphics::SetRenderTarget(Display &amp;display)']]],
-  ['shader_2',['Shader',['../classTeaPacket_1_1Graphics_1_1Shader.html',1,'TeaPacket::Graphics']]],
-  ['shader_2ehpp_3',['Shader.hpp',['../Shader_8hpp.html',1,'']]],
-  ['shader_5fvar_5ftype_5ffloat_4',['SHADER_VAR_TYPE_FLOAT',['../namespaceTeaPacket_1_1Graphics.html#ac745dff4e7696302e3557b9f09b5100ea01a97c87ae71677f17c621ccbc9cefe3',1,'TeaPacket::Graphics']]],
-  ['shader_5fvar_5ftype_5fint_5',['SHADER_VAR_TYPE_INT',['../namespaceTeaPacket_1_1Graphics.html#ac745dff4e7696302e3557b9f09b5100ea9224b1ac7b913030ed084f8c4de6dc99',1,'TeaPacket::Graphics']]],
-  ['shader_5fvar_5ftype_5ftexture_6',['SHADER_VAR_TYPE_TEXTURE',['../namespaceTeaPacket_1_1Graphics.html#ac745dff4e7696302e3557b9f09b5100ea0671738f0f404ed0a85ae08071006be2',1,'TeaPacket::Graphics']]],
-  ['shader_5fvar_5ftype_5fuint_7',['SHADER_VAR_TYPE_UINT',['../namespaceTeaPacket_1_1Graphics.html#ac745dff4e7696302e3557b9f09b5100eabda5bd65afe03895d231ff68006dbfcb',1,'TeaPacket::Graphics']]],
-  ['shadervariable_8',['ShaderVariable',['../structTeaPacket_1_1Graphics_1_1ShaderVariable.html',1,'TeaPacket::Graphics::ShaderVariable'],['../structTeaPacket_1_1Graphics_1_1ShaderVariable.html#a261f1bf6844d527db707a17e17f323ae',1,'TeaPacket::Graphics::ShaderVariable::ShaderVariable()'],['../structTeaPacket_1_1Graphics_1_1ShaderVariable.html#ac1ecbe539553f120254391715b601277',1,'TeaPacket::Graphics::ShaderVariable::ShaderVariable(ShaderVariableBaseType type, unsigned char amount)']]],
-  ['shadervariable_2ehpp_9',['ShaderVariable.hpp',['../ShaderVariable_8hpp.html',1,'']]],
-  ['shadervariablebasetype_10',['ShaderVariableBaseType',['../namespaceTeaPacket_1_1Graphics.html#ac745dff4e7696302e3557b9f09b5100e',1,'TeaPacket::Graphics']]],
-  ['shadervariabletype_11',['ShaderVariableType',['../structTeaPacket_1_1Graphics_1_1ShaderVariableType.html',1,'TeaPacket::Graphics::ShaderVariableType'],['../structTeaPacket_1_1Graphics_1_1ShaderVariableType.html#a3e486ae3deba88c4d88afe757fd4956b',1,'TeaPacket::Graphics::ShaderVariableType::ShaderVariableType()'],['../structTeaPacket_1_1Graphics_1_1ShaderVariableType.html#aa29de490a635730af5f1dd71a89ccd49',1,'TeaPacket::Graphics::ShaderVariableType::ShaderVariableType(ShaderVariableBaseType type, unsigned char amount)']]],
-  ['shadervariablevalue_12',['ShaderVariableValue',['../unionTeaPacket_1_1Graphics_1_1ShaderVariableValue.html',1,'TeaPacket::Graphics']]],
-  ['shouldquit_13',['ShouldQuit',['../namespaceTeaPacket_1_1Interface.html#a5f772a5e21223e98f2c7b74fbcfb5816',1,'TeaPacket::Interface']]],
-  ['shouldrun_14',['ShouldRun',['../namespaceTeaPacket.html#a067d766d4ef60c81852f5b5ff4967470',1,'TeaPacket']]],
-  ['structutils_2ehpp_15',['StructUtils.hpp',['../StructUtils_8hpp.html',1,'']]]
+  ['r_0',['r',['../classTeaPacket_1_1Math_1_1Vector.html#a5b3bfa6952b7bf401e2d2c01fa077fdf',1,'TeaPacket::Math::Vector::r()'],['../classTeaPacket_1_1Math_1_1Vector.html#a68ef022aff980e45457951b71303b5df',1,'TeaPacket::Math::Vector::r() const']]],
+  ['readallbytesfromasset_1',['ReadAllBytesFromAsset',['../namespaceTeaPacket_1_1Files.html#a0cdb09d8cdf6d540c8e241f2226b5dcd',1,'TeaPacket::Files']]],
+  ['readtextasset_2',['ReadTextAsset',['../namespaceTeaPacket_1_1Files.html#a870e267f4069ad099fd6276d06d961dc',1,'TeaPacket::Files']]],
+  ['registerdisplay_3',['RegisterDisplay',['../classTeaPacket_1_1Graphics_1_1Display.html#a3c6a5b233e961d708bd7f7c442b806c9',1,'TeaPacket::Graphics::Display']]],
+  ['render_4',['Render',['../classTeaPacket_1_1Graphics_1_1Model.html#a2b31028a2878997796807a8ec6eacf4e',1,'TeaPacket::Graphics::Model']]],
+  ['resize_5',['Resize',['../classTeaPacket_1_1Graphics_1_1Display.html#a25a5cabd4f20b584f0409aa4f12736ec',1,'TeaPacket::Graphics::Display']]],
+  ['runengine_6',['RunEngine',['../namespaceTeaPacket.html#add7637bf85fb934053f642945523ab10',1,'TeaPacket']]]
 ];

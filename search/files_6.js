@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['model_2ehpp_0',['Model.hpp',['../Model_8hpp.html',1,'']]]
+  ['logging_2ehpp_0',['Logging.hpp',['../Logging_8hpp.html',1,'']]]
 ];
