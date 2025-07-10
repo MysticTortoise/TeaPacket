@@ -9,7 +9,10 @@ var annotated_dup =
         [ "Display", "classTeaPacket_1_1Graphics_1_1Display.html", "classTeaPacket_1_1Graphics_1_1Display" ],
         [ "Model", "classTeaPacket_1_1Graphics_1_1Model.html", "classTeaPacket_1_1Graphics_1_1Model" ],
         [ "Shader", "classTeaPacket_1_1Graphics_1_1Shader.html", "classTeaPacket_1_1Graphics_1_1Shader" ],
-        [ "VertexAttribute", "structTeaPacket_1_1Graphics_1_1VertexAttribute.html", "structTeaPacket_1_1Graphics_1_1VertexAttribute" ],
+        [ "ShaderVariable", "structTeaPacket_1_1Graphics_1_1ShaderVariable.html", "structTeaPacket_1_1Graphics_1_1ShaderVariable" ],
+        [ "ShaderVariableType", "structTeaPacket_1_1Graphics_1_1ShaderVariableType.html", "structTeaPacket_1_1Graphics_1_1ShaderVariableType" ],
+        [ "ShaderVariableValue", "unionTeaPacket_1_1Graphics_1_1ShaderVariableValue.html", "unionTeaPacket_1_1Graphics_1_1ShaderVariableValue" ],
+        [ "Texture", "classTeaPacket_1_1Graphics_1_1Texture.html", "classTeaPacket_1_1Graphics_1_1Texture" ],
         [ "Viewport", "classTeaPacket_1_1Graphics_1_1Viewport.html", "classTeaPacket_1_1Graphics_1_1Viewport" ]
       ] ],
       [ "Math", "namespaceTeaPacket_1_1Math.html", [

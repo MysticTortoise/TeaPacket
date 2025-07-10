@@ -120,8 +120,14 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTeaPacket_1_1Graphics_1_1Shader.html">Shader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A combined shader (or program) in the rendering pipeline. Used to interpret and render <a class="el" href="classTeaPacket_1_1Graphics_1_1Model.html" title="Represents a piece of render-able geometry.">Model</a> data.  <a href="classTeaPacket_1_1Graphics_1_1Shader.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTeaPacket_1_1Graphics_1_1VertexAttribute.html">VertexAttribute</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Vertex Attribute.  <a href="structTeaPacket_1_1Graphics_1_1VertexAttribute.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTeaPacket_1_1Graphics_1_1ShaderVariable.html">ShaderVariable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTeaPacket_1_1Graphics_1_1ShaderVariableType.html">ShaderVariableType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a variable within a shader.  <a href="structTeaPacket_1_1Graphics_1_1ShaderVariableType.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionTeaPacket_1_1Graphics_1_1ShaderVariableValue.html">ShaderVariableValue</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTeaPacket_1_1Graphics_1_1Texture.html">Texture</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a singular renderable area. These can be used as textures, or blit to Displays to present to the user.  <a href="classTeaPacket_1_1Graphics_1_1Viewport.html#details">More...</a><br /></td></tr>
@@ -129,12 +135,22 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a8ce0db96ccbafa8ab173d704faeb7e3b" id="r_a8ce0db96ccbafa8ab173d704faeb7e3b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ce0db96ccbafa8ab173d704faeb7e3b">VertexAttributeType</a> { <a class="el" href="#a8ce0db96ccbafa8ab173d704faeb7e3babf64d835533bc5772ce582ced33bf282">VERTEX_ATTR_TYPE_FLOAT</a>
-, <a class="el" href="#a8ce0db96ccbafa8ab173d704faeb7e3bac24ee70ab23afe2d0a50c0693c7231bf">VERTEX_ATTR_TYPE_INT</a>
-, <a class="el" href="#a8ce0db96ccbafa8ab173d704faeb7e3ba80bab627e7296d3cbb0172cad68c640b">VERTEX_ATTR_TYPE_UINT</a>
+<tr class="memitem:ac745dff4e7696302e3557b9f09b5100e" id="r_ac745dff4e7696302e3557b9f09b5100e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac745dff4e7696302e3557b9f09b5100e">ShaderVariableBaseType</a> : unsigned char { <a class="el" href="#ac745dff4e7696302e3557b9f09b5100ea01a97c87ae71677f17c621ccbc9cefe3">SHADER_VAR_TYPE_FLOAT</a>
+, <a class="el" href="#ac745dff4e7696302e3557b9f09b5100ea9224b1ac7b913030ed084f8c4de6dc99">SHADER_VAR_TYPE_INT</a>
+, <a class="el" href="#ac745dff4e7696302e3557b9f09b5100eabda5bd65afe03895d231ff68006dbfcb">SHADER_VAR_TYPE_UINT</a>
+, <a class="el" href="#ac745dff4e7696302e3557b9f09b5100ea0671738f0f404ed0a85ae08071006be2">SHADER_VAR_TYPE_TEXTURE</a>
  }</td></tr>
-<tr class="memdesc:a8ce0db96ccbafa8ab173d704faeb7e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for Vertex Attributes.  <a href="#a8ce0db96ccbafa8ab173d704faeb7e3b">More...</a><br /></td></tr>
-<tr class="separator:a8ce0db96ccbafa8ab173d704faeb7e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ac745dff4e7696302e3557b9f09b5100e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for Vertex Attributes.  <a href="#ac745dff4e7696302e3557b9f09b5100e">More...</a><br /></td></tr>
+<tr class="separator:ac745dff4e7696302e3557b9f09b5100e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af68d4fdade500405ddf19352b894e661" id="r_af68d4fdade500405ddf19352b894e661"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af68d4fdade500405ddf19352b894e661">TextureFilterType</a> : unsigned char { <a class="el" href="#af68d4fdade500405ddf19352b894e661aa01f20bc6883c8c8cd7389123d79d324">TEXTURE_FILTER_POINT</a>
+, <a class="el" href="#af68d4fdade500405ddf19352b894e661a0f354cd9709db8aa62a9b4759ed63e3f">TEXTURE_FILTER_LINEAR</a>
+ }</td></tr>
+<tr class="separator:af68d4fdade500405ddf19352b894e661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace76b6ae0d3a6e5bf868790bd1c93949" id="r_ace76b6ae0d3a6e5bf868790bd1c93949"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace76b6ae0d3a6e5bf868790bd1c93949">TextureWrapType</a> : unsigned char { <a class="el" href="#ace76b6ae0d3a6e5bf868790bd1c93949a2fbb6cfa84e7b95cb496a1966747abed">TEXTURE_WRAP_REPEAT</a>
+, <a class="el" href="#ace76b6ae0d3a6e5bf868790bd1c93949a0fafaa7d70842e0b6fba35dab989834b">TEXTURE_WRAP_MIRROR</a>
+, <a class="el" href="#ace76b6ae0d3a6e5bf868790bd1c93949ad4237e1b7bf5f6f38ebe15d2d38b7bfd">TEXTURE_WRAP_CLAMP</a>
+ }</td></tr>
+<tr class="separator:ace76b6ae0d3a6e5bf868790bd1c93949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -150,8 +166,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ae802eee2af1247b8beac8593648a035f" id="r_ae802eee2af1247b8beac8593648a035f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae802eee2af1247b8beac8593648a035f">FinishRenderToViewport</a> ()</td></tr>
 <tr class="memdesc:ae802eee2af1247b8beac8593648a035f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concludes rendering to the current Interface::Display.  <br /></td></tr>
 <tr class="separator:ae802eee2af1247b8beac8593648a035f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d718c8d1553ca3f5394155b9326c839" id="r_a6d718c8d1553ca3f5394155b9326c839"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d718c8d1553ca3f5394155b9326c839">RenderViewportToDisplay</a> (<a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html">Display</a> &amp;display, <a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;viewport)</td></tr>
-<tr class="separator:a6d718c8d1553ca3f5394155b9326c839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634d8e50672c91130412f4280adbe4e9" id="r_a634d8e50672c91130412f4280adbe4e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a634d8e50672c91130412f4280adbe4e9">ClearScreen</a> (const <a class="el" href="Color4_8hpp.html#a41717fd803210f6a85f8db2d12fd4e92">Color4</a> &amp;color)</td></tr>
 <tr class="memdesc:a634d8e50672c91130412f4280adbe4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the active <a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html" title="Represents a singular viewable area.">Display</a> with a color.  <br /></td></tr>
 <tr class="separator:a634d8e50672c91130412f4280adbe4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,24 +182,65 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functionality relating to drawing graphics to the screen. </p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a8ce0db96ccbafa8ab173d704faeb7e3b" name="a8ce0db96ccbafa8ab173d704faeb7e3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ce0db96ccbafa8ab173d704faeb7e3b">&#9670;&#160;</a></span>VertexAttributeType</h2>
+<a id="ac745dff4e7696302e3557b9f09b5100e" name="ac745dff4e7696302e3557b9f09b5100e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac745dff4e7696302e3557b9f09b5100e">&#9670;&#160;</a></span>ShaderVariableBaseType</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="#a8ce0db96ccbafa8ab173d704faeb7e3b">TeaPacket::Graphics::VertexAttributeType</a></td>
+          <td class="memname">enum <a class="el" href="#ac745dff4e7696302e3557b9f09b5100e">TeaPacket::Graphics::ShaderVariableBaseType</a> : unsigned char</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Type for Vertex Attributes. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8ce0db96ccbafa8ab173d704faeb7e3babf64d835533bc5772ce582ced33bf282" name="a8ce0db96ccbafa8ab173d704faeb7e3babf64d835533bc5772ce582ced33bf282"></a>VERTEX_ATTR_TYPE_FLOAT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8ce0db96ccbafa8ab173d704faeb7e3bac24ee70ab23afe2d0a50c0693c7231bf" name="a8ce0db96ccbafa8ab173d704faeb7e3bac24ee70ab23afe2d0a50c0693c7231bf"></a>VERTEX_ATTR_TYPE_INT&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8ce0db96ccbafa8ab173d704faeb7e3ba80bab627e7296d3cbb0172cad68c640b" name="a8ce0db96ccbafa8ab173d704faeb7e3ba80bab627e7296d3cbb0172cad68c640b"></a>VERTEX_ATTR_TYPE_UINT&#160;</td><td class="fielddoc"><p>Signed Integer. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac745dff4e7696302e3557b9f09b5100ea01a97c87ae71677f17c621ccbc9cefe3" name="ac745dff4e7696302e3557b9f09b5100ea01a97c87ae71677f17c621ccbc9cefe3"></a>SHADER_VAR_TYPE_FLOAT&#160;</td><td class="fielddoc"><p>Single-precision float. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="ac745dff4e7696302e3557b9f09b5100ea9224b1ac7b913030ed084f8c4de6dc99" name="ac745dff4e7696302e3557b9f09b5100ea9224b1ac7b913030ed084f8c4de6dc99"></a>SHADER_VAR_TYPE_INT&#160;</td><td class="fielddoc"><p>Signed Integer. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac745dff4e7696302e3557b9f09b5100eabda5bd65afe03895d231ff68006dbfcb" name="ac745dff4e7696302e3557b9f09b5100eabda5bd65afe03895d231ff68006dbfcb"></a>SHADER_VAR_TYPE_UINT&#160;</td><td class="fielddoc"><p>Unsigned Integer. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac745dff4e7696302e3557b9f09b5100ea0671738f0f404ed0a85ae08071006be2" name="ac745dff4e7696302e3557b9f09b5100ea0671738f0f404ed0a85ae08071006be2"></a>SHADER_VAR_TYPE_TEXTURE&#160;</td><td class="fielddoc"><p>Texture/Sampler. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="af68d4fdade500405ddf19352b894e661" name="af68d4fdade500405ddf19352b894e661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af68d4fdade500405ddf19352b894e661">&#9670;&#160;</a></span>TextureFilterType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af68d4fdade500405ddf19352b894e661">TeaPacket::Graphics::TextureFilterType</a> : unsigned char</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af68d4fdade500405ddf19352b894e661aa01f20bc6883c8c8cd7389123d79d324" name="af68d4fdade500405ddf19352b894e661aa01f20bc6883c8c8cd7389123d79d324"></a>TEXTURE_FILTER_POINT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af68d4fdade500405ddf19352b894e661a0f354cd9709db8aa62a9b4759ed63e3f" name="af68d4fdade500405ddf19352b894e661a0f354cd9709db8aa62a9b4759ed63e3f"></a>TEXTURE_FILTER_LINEAR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ace76b6ae0d3a6e5bf868790bd1c93949" name="ace76b6ae0d3a6e5bf868790bd1c93949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace76b6ae0d3a6e5bf868790bd1c93949">&#9670;&#160;</a></span>TextureWrapType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ace76b6ae0d3a6e5bf868790bd1c93949">TeaPacket::Graphics::TextureWrapType</a> : unsigned char</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ace76b6ae0d3a6e5bf868790bd1c93949a2fbb6cfa84e7b95cb496a1966747abed" name="ace76b6ae0d3a6e5bf868790bd1c93949a2fbb6cfa84e7b95cb496a1966747abed"></a>TEXTURE_WRAP_REPEAT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ace76b6ae0d3a6e5bf868790bd1c93949a0fafaa7d70842e0b6fba35dab989834b" name="ace76b6ae0d3a6e5bf868790bd1c93949a0fafaa7d70842e0b6fba35dab989834b"></a>TEXTURE_WRAP_MIRROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ace76b6ae0d3a6e5bf868790bd1c93949ad4237e1b7bf5f6f38ebe15d2d38b7bfd" name="ace76b6ae0d3a6e5bf868790bd1c93949ad4237e1b7bf5f6f38ebe15d2d38b7bfd"></a>TEXTURE_WRAP_CLAMP&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -284,27 +339,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes any <a class="el" href="namespaceTeaPacket_1_1Graphics.html" title="Functionality relating to drawing graphics to the screen.">Graphics</a> related systems. </p>
-
-</div>
-</div>
-<a id="a6d718c8d1553ca3f5394155b9326c839" name="a6d718c8d1553ca3f5394155b9326c839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d718c8d1553ca3f5394155b9326c839">&#9670;&#160;</a></span>RenderViewportToDisplay()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TeaPacket::Graphics::RenderViewportToDisplay </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html">Display</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>display</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>viewport</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

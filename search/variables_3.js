@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_0',['height',['../classTeaPacket_1_1Graphics_1_1Display.html#a690f3e35238843b42072a48ce73f98dc',1,'TeaPacket::Graphics::Display::height'],['../classTeaPacket_1_1Graphics_1_1Viewport.html#a4c03a55a8807537685a177aa31a5c350',1,'TeaPacket::Graphics::Viewport::height']]]
+  ['filtertype_0',['filterType',['../classTeaPacket_1_1Graphics_1_1Texture.html#a2df412d90c06a889d6b413fcfb05c473',1,'TeaPacket::Graphics::Texture']]]
 ];

@@ -6,5 +6,7 @@ var dir_9f9a15fcb8dd519edb06e5411c5528a3 =
     [ "Graphics.hpp", "Graphics_8hpp.html", "Graphics_8hpp" ],
     [ "Model.hpp", "Model_8hpp.html", "Model_8hpp" ],
     [ "Shader.hpp", "Shader_8hpp.html", "Shader_8hpp" ],
+    [ "ShaderVariable.hpp", "ShaderVariable_8hpp.html", "ShaderVariable_8hpp" ],
+    [ "Texture.hpp", "Texture_8hpp.html", "Texture_8hpp" ],
     [ "Viewport.hpp", "Viewport_8hpp.html", "Viewport_8hpp" ]
 ];
