@@ -5,7 +5,6 @@ var searchData=
   ['readtextasset_2',['ReadTextAsset',['../namespaceTeaPacket_1_1Files.html#a870e267f4069ad099fd6276d06d961dc',1,'TeaPacket::Files']]],
   ['registerdisplay_3',['RegisterDisplay',['../classTeaPacket_1_1Graphics_1_1Display.html#a3c6a5b233e961d708bd7f7c442b806c9',1,'TeaPacket::Graphics::Display']]],
   ['render_4',['Render',['../classTeaPacket_1_1Graphics_1_1Model.html#a2b31028a2878997796807a8ec6eacf4e',1,'TeaPacket::Graphics::Model']]],
-  ['renderviewport_5',['RenderViewport',['../classTeaPacket_1_1Graphics_1_1Display.html#a3804ee369c1f591d11ebee731422f84f',1,'TeaPacket::Graphics::Display']]],
-  ['resize_6',['Resize',['../classTeaPacket_1_1Graphics_1_1Display.html#a25a5cabd4f20b584f0409aa4f12736ec',1,'TeaPacket::Graphics::Display']]],
-  ['runengine_7',['RunEngine',['../namespaceTeaPacket.html#add7637bf85fb934053f642945523ab10',1,'TeaPacket']]]
+  ['resize_5',['Resize',['../classTeaPacket_1_1Graphics_1_1Display.html#a25a5cabd4f20b584f0409aa4f12736ec',1,'TeaPacket::Graphics::Display']]],
+  ['runengine_6',['RunEngine',['../namespaceTeaPacket.html#add7637bf85fb934053f642945523ab10',1,'TeaPacket']]]
 ];

@@ -59,7 +59,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AssetReader_8hpp.html",
-"namespaceTeaPacket_1_1Interface.html#ac4f0fae2a77a1175bc5f4bdcacc46b22"
+"namespaceTeaPacket_1_1Graphics.html#af68d4fdade500405ddf19352b894e661a0f354cd9709db8aa62a9b4759ed63e3f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

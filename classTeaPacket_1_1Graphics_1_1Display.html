@@ -116,8 +116,8 @@ $(function(){initNavTree('classTeaPacket_1_1Graphics_1_1Display.html',''); initR
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a25a5cabd4f20b584f0409aa4f12736ec" id="r_a25a5cabd4f20b584f0409aa4f12736ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25a5cabd4f20b584f0409aa4f12736ec">Resize</a> (unsigned short newWidth, unsigned short newHeight)</td></tr>
 <tr class="separator:a25a5cabd4f20b584f0409aa4f12736ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3804ee369c1f591d11ebee731422f84f" id="r_a3804ee369c1f591d11ebee731422f84f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3804ee369c1f591d11ebee731422f84f">RenderViewport</a> (const <a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;viewport)</td></tr>
-<tr class="separator:a3804ee369c1f591d11ebee731422f84f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a355cf89eb2cd8c0b3c927a3ebb360398" id="r_a355cf89eb2cd8c0b3c927a3ebb360398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a355cf89eb2cd8c0b3c927a3ebb360398">PresentDisplay</a> ()</td></tr>
+<tr class="separator:a355cf89eb2cd8c0b3c927a3ebb360398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a365086788e0468709e209d78f4ac57c1" id="r_a365086788e0468709e209d78f4ac57c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a365086788e0468709e209d78f4ac57c1">DeInitialize</a> ()</td></tr>
 <tr class="memdesc:a365086788e0468709e209d78f4ac57c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-initializes the <a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html" title="Represents a singular viewable area.">Display</a> and its graphics.  <br /></td></tr>
 <tr class="separator:a365086788e0468709e209d78f4ac57c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +139,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:acfe0fd728ef9e506f1b1f4aa8fb1c990" id="r_acfe0fd728ef9e506f1b1f4aa8fb1c990"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfe0fd728ef9e506f1b1f4aa8fb1c990">name</a></td></tr>
 <tr class="memdesc:acfe0fd728ef9e506f1b1f4aa8fb1c990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the display. Will be shown to the user on platforms that allow.  <br /></td></tr>
 <tr class="separator:acfe0fd728ef9e506f1b1f4aa8fb1c990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33948e63e2c5a402e32a95cab93afebd" id="r_a33948e63e2c5a402e32a95cab93afebd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33948e63e2c5a402e32a95cab93afebd">viewport</a></td></tr>
+<tr class="separator:a33948e63e2c5a402e32a95cab93afebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f6ff642f478fc9504c5f111e6112d9b" id="r_a8f6ff642f478fc9504c5f111e6112d9b"><td class="memItemLeft" align="right" valign="top">PlatformDisplay&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f6ff642f478fc9504c5f111e6112d9b">platformDisplay</a></td></tr>
 <tr class="memdesc:a8f6ff642f478fc9504c5f111e6112d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private platform-dependent data.  <br /></td></tr>
 <tr class="separator:a8f6ff642f478fc9504c5f111e6112d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,6 +173,23 @@ Some specific platforms may have a fixed number that is more than 1, if the syst
 </div><div class="memdoc">
 
 <p>De-initializes the <a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html" title="Represents a singular viewable area.">Display</a> and its graphics. </p>
+
+</div>
+</div>
+<a id="a355cf89eb2cd8c0b3c927a3ebb360398" name="a355cf89eb2cd8c0b3c927a3ebb360398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a355cf89eb2cd8c0b3c927a3ebb360398">&#9670;&#160;</a></span>PresentDisplay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeaPacket::Graphics::Display::PresentDisplay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -219,23 +238,6 @@ On any other platforms, it will return nullptr </p><dl class="params"><dt>Parame
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html" title="Represents a singular viewable area.">Display</a> that was created. Will be nullptr if creating a display isn't possible. </dd></dl>
-
-</div>
-</div>
-<a id="a3804ee369c1f591d11ebee731422f84f" name="a3804ee369c1f591d11ebee731422f84f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3804ee369c1f591d11ebee731422f84f">&#9670;&#160;</a></span>RenderViewport()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TeaPacket::Graphics::Display::RenderViewport </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>viewport</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -330,6 +332,20 @@ On any other platforms, it will return nullptr </p><dl class="params"><dt>Parame
 </div><div class="memdoc">
 
 <p>Private platform-dependent data. </p>
+
+</div>
+</div>
+<a id="a33948e63e2c5a402e32a95cab93afebd" name="a33948e63e2c5a402e32a95cab93afebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33948e63e2c5a402e32a95cab93afebd">&#9670;&#160;</a></span>viewport</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> TeaPacket::Graphics::Display::viewport</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
