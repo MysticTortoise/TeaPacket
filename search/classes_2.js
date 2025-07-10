@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['model_0',['Model',['../classTeaPacket_1_1Graphics_1_1Model.html',1,'TeaPacket::Graphics']]]
+  ['functionnotimplemented_0',['FunctionNotImplemented',['../classTeaPacket_1_1Error_1_1FunctionNotImplemented.html',1,'TeaPacket::Error']]]
 ];

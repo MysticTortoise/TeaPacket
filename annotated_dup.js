@@ -1,6 +1,9 @@
 var annotated_dup =
 [
     [ "TeaPacket", "namespaceTeaPacket.html", [
+      [ "Assets", "namespaceTeaPacket_1_1Assets.html", [
+        [ "AssetStream", "classTeaPacket_1_1Assets_1_1AssetStream.html", "classTeaPacket_1_1Assets_1_1AssetStream" ]
+      ] ],
       [ "Error", "namespaceTeaPacket_1_1Error.html", [
         [ "FunctionNotImplemented", "classTeaPacket_1_1Error_1_1FunctionNotImplemented.html", "classTeaPacket_1_1Error_1_1FunctionNotImplemented" ],
         [ "NotImplemented", "classTeaPacket_1_1Error_1_1NotImplemented.html", "classTeaPacket_1_1Error_1_1NotImplemented" ]

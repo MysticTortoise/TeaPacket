@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "TeaPacket::Assets::AssetStream", "classTeaPacket_1_1Assets_1_1AssetStream.html", null ],
     [ "TeaPacket::Graphics::Display", "classTeaPacket_1_1Graphics_1_1Display.html", null ],
     [ "std::logic_error", null, [
       [ "TeaPacket::Error::NotImplemented", "classTeaPacket_1_1Error_1_1NotImplemented.html", [
