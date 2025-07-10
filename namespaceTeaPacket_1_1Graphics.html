@@ -160,12 +160,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a3b5622e7f6d8786a9b49d1da03aaaa11" id="r_a3b5622e7f6d8786a9b49d1da03aaaa11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b5622e7f6d8786a9b49d1da03aaaa11">DeInitialize</a> ()</td></tr>
 <tr class="memdesc:a3b5622e7f6d8786a9b49d1da03aaaa11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes all <a class="el" href="namespaceTeaPacket_1_1Graphics.html" title="Functionality relating to drawing graphics to the screen.">Graphics</a> related systems.  <br /></td></tr>
 <tr class="separator:a3b5622e7f6d8786a9b49d1da03aaaa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acabdf050acefe05af91f8bd768f8651c" id="r_acabdf050acefe05af91f8bd768f8651c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acabdf050acefe05af91f8bd768f8651c">BeginRenderToViewport</a> (<a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;viewport)</td></tr>
-<tr class="memdesc:acabdf050acefe05af91f8bd768f8651c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins rendering to a specified Interface::Display.  <br /></td></tr>
-<tr class="separator:acabdf050acefe05af91f8bd768f8651c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae802eee2af1247b8beac8593648a035f" id="r_ae802eee2af1247b8beac8593648a035f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae802eee2af1247b8beac8593648a035f">FinishRenderToViewport</a> ()</td></tr>
-<tr class="memdesc:ae802eee2af1247b8beac8593648a035f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concludes rendering to the current Interface::Display.  <br /></td></tr>
-<tr class="separator:ae802eee2af1247b8beac8593648a035f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fe7ee807b79ce97279b9c3436b5a74" id="r_a03fe7ee807b79ce97279b9c3436b5a74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03fe7ee807b79ce97279b9c3436b5a74">SetRenderTarget</a> (<a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;viewport)</td></tr>
+<tr class="memdesc:a03fe7ee807b79ce97279b9c3436b5a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins rendering to a specified Interface::Display.  <br /></td></tr>
+<tr class="separator:a03fe7ee807b79ce97279b9c3436b5a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379c95526a0b0b93bd07840ca603d582" id="r_a379c95526a0b0b93bd07840ca603d582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a379c95526a0b0b93bd07840ca603d582">SetRenderTarget</a> (<a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html">Display</a> &amp;display)</td></tr>
+<tr class="memdesc:a379c95526a0b0b93bd07840ca603d582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active viewport to the viewport contained within a display.  <br /></td></tr>
+<tr class="separator:a379c95526a0b0b93bd07840ca603d582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c13178a93591b3c12e3028cc229f79" id="r_a18c13178a93591b3c12e3028cc229f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18c13178a93591b3c12e3028cc229f79">FinishRenderTarget</a> ()</td></tr>
+<tr class="memdesc:a18c13178a93591b3c12e3028cc229f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concludes rendering to the current Interface::Display.  <br /></td></tr>
+<tr class="separator:a18c13178a93591b3c12e3028cc229f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634d8e50672c91130412f4280adbe4e9" id="r_a634d8e50672c91130412f4280adbe4e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a634d8e50672c91130412f4280adbe4e9">ClearScreen</a> (const <a class="el" href="Color4_8hpp.html#a41717fd803210f6a85f8db2d12fd4e92">Color4</a> &amp;color)</td></tr>
 <tr class="memdesc:a634d8e50672c91130412f4280adbe4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the active <a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html" title="Represents a singular viewable area.">Display</a> with a color.  <br /></td></tr>
 <tr class="separator:a634d8e50672c91130412f4280adbe4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,26 +249,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="acabdf050acefe05af91f8bd768f8651c" name="acabdf050acefe05af91f8bd768f8651c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acabdf050acefe05af91f8bd768f8651c">&#9670;&#160;</a></span>BeginRenderToViewport()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TeaPacket::Graphics::BeginRenderToViewport </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>viewport</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Begins rendering to a specified Interface::Display. </p>
-<p>Must always be followed by a call to FinishRenderToDisplay() </p>
-
-</div>
-</div>
 <a id="a634d8e50672c91130412f4280adbe4e9" name="a634d8e50672c91130412f4280adbe4e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a634d8e50672c91130412f4280adbe4e9">&#9670;&#160;</a></span>ClearScreen()</h2>
 
@@ -304,14 +287,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae802eee2af1247b8beac8593648a035f" name="ae802eee2af1247b8beac8593648a035f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae802eee2af1247b8beac8593648a035f">&#9670;&#160;</a></span>FinishRenderToViewport()</h2>
+<a id="a18c13178a93591b3c12e3028cc229f79" name="a18c13178a93591b3c12e3028cc229f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c13178a93591b3c12e3028cc229f79">&#9670;&#160;</a></span>FinishRenderTarget()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TeaPacket::Graphics::FinishRenderToViewport </td>
+          <td class="memname">void TeaPacket::Graphics::FinishRenderTarget </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -339,6 +322,45 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes any <a class="el" href="namespaceTeaPacket_1_1Graphics.html" title="Functionality relating to drawing graphics to the screen.">Graphics</a> related systems. </p>
+
+</div>
+</div>
+<a id="a379c95526a0b0b93bd07840ca603d582" name="a379c95526a0b0b93bd07840ca603d582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a379c95526a0b0b93bd07840ca603d582">&#9670;&#160;</a></span>SetRenderTarget() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeaPacket::Graphics::SetRenderTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html">Display</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>display</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the active viewport to the viewport contained within a display. </p>
+
+</div>
+</div>
+<a id="a03fe7ee807b79ce97279b9c3436b5a74" name="a03fe7ee807b79ce97279b9c3436b5a74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03fe7ee807b79ce97279b9c3436b5a74">&#9670;&#160;</a></span>SetRenderTarget() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeaPacket::Graphics::SetRenderTarget </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>viewport</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Begins rendering to a specified Interface::Display. </p>
+<p>Sets the active viewport to be rendered to. Must always be followed by a call to FinishRenderToDisplay() </p>
 
 </div>
 </div>

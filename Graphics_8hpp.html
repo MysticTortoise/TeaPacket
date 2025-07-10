@@ -104,7 +104,8 @@ $(function(){initNavTree('Graphics_8hpp.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Graphics.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="Color4_8hpp_source.html">TeaPacket/Graphics/Color4.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="Display_8hpp_source.html">Display.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Color4_8hpp_source.html">TeaPacket/Graphics/Color4.hpp</a>&quot;</code><br />
 </div>
 <p><a href="Graphics_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -124,12 +125,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a3b5622e7f6d8786a9b49d1da03aaaa11" id="r_a3b5622e7f6d8786a9b49d1da03aaaa11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTeaPacket_1_1Graphics.html#a3b5622e7f6d8786a9b49d1da03aaaa11">TeaPacket::Graphics::DeInitialize</a> ()</td></tr>
 <tr class="memdesc:a3b5622e7f6d8786a9b49d1da03aaaa11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes all <a class="el" href="namespaceTeaPacket_1_1Graphics.html" title="Functionality relating to drawing graphics to the screen.">Graphics</a> related systems.  <br /></td></tr>
 <tr class="separator:a3b5622e7f6d8786a9b49d1da03aaaa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acabdf050acefe05af91f8bd768f8651c" id="r_acabdf050acefe05af91f8bd768f8651c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTeaPacket_1_1Graphics.html#acabdf050acefe05af91f8bd768f8651c">TeaPacket::Graphics::BeginRenderToViewport</a> (<a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;viewport)</td></tr>
-<tr class="memdesc:acabdf050acefe05af91f8bd768f8651c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins rendering to a specified Interface::Display.  <br /></td></tr>
-<tr class="separator:acabdf050acefe05af91f8bd768f8651c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae802eee2af1247b8beac8593648a035f" id="r_ae802eee2af1247b8beac8593648a035f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTeaPacket_1_1Graphics.html#ae802eee2af1247b8beac8593648a035f">TeaPacket::Graphics::FinishRenderToViewport</a> ()</td></tr>
-<tr class="memdesc:ae802eee2af1247b8beac8593648a035f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concludes rendering to the current Interface::Display.  <br /></td></tr>
-<tr class="separator:ae802eee2af1247b8beac8593648a035f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fe7ee807b79ce97279b9c3436b5a74" id="r_a03fe7ee807b79ce97279b9c3436b5a74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTeaPacket_1_1Graphics.html#a03fe7ee807b79ce97279b9c3436b5a74">TeaPacket::Graphics::SetRenderTarget</a> (<a class="el" href="classTeaPacket_1_1Graphics_1_1Viewport.html">Viewport</a> &amp;viewport)</td></tr>
+<tr class="memdesc:a03fe7ee807b79ce97279b9c3436b5a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins rendering to a specified Interface::Display.  <br /></td></tr>
+<tr class="separator:a03fe7ee807b79ce97279b9c3436b5a74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379c95526a0b0b93bd07840ca603d582" id="r_a379c95526a0b0b93bd07840ca603d582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTeaPacket_1_1Graphics.html#a379c95526a0b0b93bd07840ca603d582">TeaPacket::Graphics::SetRenderTarget</a> (<a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html">Display</a> &amp;display)</td></tr>
+<tr class="memdesc:a379c95526a0b0b93bd07840ca603d582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active viewport to the viewport contained within a display.  <br /></td></tr>
+<tr class="separator:a379c95526a0b0b93bd07840ca603d582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c13178a93591b3c12e3028cc229f79" id="r_a18c13178a93591b3c12e3028cc229f79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTeaPacket_1_1Graphics.html#a18c13178a93591b3c12e3028cc229f79">TeaPacket::Graphics::FinishRenderTarget</a> ()</td></tr>
+<tr class="memdesc:a18c13178a93591b3c12e3028cc229f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concludes rendering to the current Interface::Display.  <br /></td></tr>
+<tr class="separator:a18c13178a93591b3c12e3028cc229f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634d8e50672c91130412f4280adbe4e9" id="r_a634d8e50672c91130412f4280adbe4e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceTeaPacket_1_1Graphics.html#a634d8e50672c91130412f4280adbe4e9">TeaPacket::Graphics::ClearScreen</a> (const <a class="el" href="Color4_8hpp.html#a41717fd803210f6a85f8db2d12fd4e92">Color4</a> &amp;color)</td></tr>
 <tr class="memdesc:a634d8e50672c91130412f4280adbe4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the active <a class="el" href="classTeaPacket_1_1Graphics_1_1Display.html" title="Represents a singular viewable area.">Display</a> with a color.  <br /></td></tr>
 <tr class="separator:a634d8e50672c91130412f4280adbe4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
