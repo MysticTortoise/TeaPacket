@@ -17,7 +17,7 @@ namespace TeaPacket::Graphics
 
         PlatformViewport platformViewport; ///< Platform data.
 
-        Texture texture;
+        Texture texture; ///< The contained Texture of the viewport. May be used as a resource elsewhere.
 
         /// Creates a Viewport, but does not Initialize it.
         /// @param width The width of the Viewport.

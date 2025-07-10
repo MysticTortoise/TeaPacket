@@ -14,9 +14,9 @@ namespace TeaPacket::Graphics
     void Pl_DeInitialize();
 
     /// Platform-specific implementation of BeginRenderToDisplay();
-    void Pl_BeginRenderToViewport(Viewport& display);
+    void Pl_BeginRenderTarget(Viewport& display);
     /// Platform-specific implementation of FinishRenderToDisplay();
-    void Pl_FinishRenderToViewport();
+    void Pl_FinishRenderTarget();
 
     void Pl_ClearScreen(const Color4& color);
 

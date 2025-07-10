@@ -23,6 +23,9 @@ namespace TeaPacket::Graphics
         /// Bind the shader for rendering. Every Model drawn after this call to UseShader() will use this shader until a new shader is bound.
         void UseShader();
 
+        /// Set a uniform within a shader
+        /// @param index The index of the parameter
+        /// @param value The value you want to set it to.
         void SetParameter(unsigned char index, ShaderVariableValue value);
     private:
         std::vector<ShaderVariable> shaderUniforms = {};

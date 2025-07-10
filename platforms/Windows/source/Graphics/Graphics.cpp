@@ -75,7 +75,7 @@ void Graphics::Pl_DeInitialize()
     }
 }
 
-void Graphics::Pl_BeginRenderToViewport(Viewport& viewport)
+void Graphics::Pl_BeginRenderTarget(Viewport& viewport)
 {
     deviceContext->OMSetRenderTargets(1,
         viewport.platformViewport.renderTargetView.GetAddressOf(),
@@ -84,7 +84,7 @@ void Graphics::Pl_BeginRenderToViewport(Viewport& viewport)
     deviceContext->RSSetViewports(1, &viewport.platformViewport.d3dviewport);
 }
 
-void Graphics::Pl_FinishRenderToViewport()
+void Graphics::Pl_FinishRenderTarget()
 {
 
 }

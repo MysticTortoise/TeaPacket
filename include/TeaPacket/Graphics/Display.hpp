@@ -19,12 +19,14 @@ namespace TeaPacket::Graphics
         unsigned short height;  ///< Height of the Display in pixels
         std::string name; ///< Name of the display. Will be shown to the user on platforms that allow.
 
+        /// The contained viewport of the Display. Render to the viewport to render to the Display.
         Viewport viewport;
 
         PlatformDisplay platformDisplay; ///< Private platform-dependent data.
 
         bool Resize(unsigned short newWidth, unsigned short newHeight);
 
+        /// Present and update all changes made to the contained Viewport (via rendering).
         void PresentDisplay();
 
         /// De-initializes the Display and its graphics.

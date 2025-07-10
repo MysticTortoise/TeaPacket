@@ -16,15 +16,20 @@ void Graphics::DeInitialize()
     initialized = false;
 }
 
-void Graphics::BeginRenderToViewport(Viewport& viewport)
+void Graphics::SetRenderTarget(Viewport& viewport)
 {
     currentViewport = &viewport;
-    Pl_BeginRenderToViewport(viewport);
+    Pl_BeginRenderTarget(viewport);
 }
 
-void Graphics::FinishRenderToViewport()
+void Graphics::SetRenderTarget(Display& display)
 {
-    Pl_FinishRenderToViewport();
+    SetRenderTarget(display.viewport);
+}
+
+void Graphics::FinishRenderTarget()
+{
+    Pl_FinishRenderTarget();
     currentViewport = nullptr;
 }
 

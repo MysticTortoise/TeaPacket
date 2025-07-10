@@ -53,11 +53,11 @@ int main()
 
     while(ShouldRun())
     {
-        BeginRenderToViewport(Display::Displays.back().viewport);
+        SetRenderTarget(Display::Displays.back());
         ClearScreen(Color4{20, 70, 127, 255});
         shader.UseShader();
         model.Render();
-        FinishRenderToViewport();
+        FinishRenderTarget();
 
         Display::Displays.back().PresentDisplay();
 

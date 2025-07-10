@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Display.hpp"
 #include "TeaPacket/Graphics/Color4.hpp"
 
 /// Functionality relating to drawing graphics to the screen.
@@ -16,10 +17,13 @@ namespace TeaPacket::Graphics
 
     /// Begins rendering to a specified Interface::Display
 
+    /// Sets the active viewport to be rendered to.
     /// Must always be followed by a call to FinishRenderToDisplay()
-    void BeginRenderToViewport(Viewport& viewport);
+    void SetRenderTarget(Viewport& viewport);
+    /// Sets the active viewport to the viewport contained within a display.
+    void SetRenderTarget(Display& display);
     /// Concludes rendering to the current Interface::Display
-    void FinishRenderToViewport();
+    void FinishRenderTarget();
 
     /// Clears the active Display with a color.
     void ClearScreen(const Color4& color);
