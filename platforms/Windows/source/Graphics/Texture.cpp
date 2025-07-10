@@ -41,7 +41,10 @@ void Texture::Pl_Initialize(const unsigned char* data)
 
     unsigned int rowPitch = width * 4 * sizeof(unsigned char);
 
-    deviceContext->UpdateSubresource(platformTexture.texture2d.Get(), 0, NULL, data, rowPitch, 0);
+    if (data != nullptr)
+    {
+        deviceContext->UpdateSubresource(platformTexture.texture2d.Get(), 0, NULL, data, rowPitch, 0);
+    }
 
     D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;
     srvDesc.Format = textureDesc.Format;

@@ -12,9 +12,7 @@ namespace TeaPacket::Graphics
         class WindowsViewport
         {
         public:
-            Microsoft::WRL::ComPtr<ID3D11Texture2D> texture;
             Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;
-            Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> shaderResourceView;
 
             Microsoft::WRL::ComPtr<ID3D11Texture2D> depthTexture;
             Microsoft::WRL::ComPtr<ID3D11DepthStencilView> depthStencilView;

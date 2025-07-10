@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../../../platforms/Windows/include/Platform/Graphics/PlatformDisplay.hpp"
+#include "Platform/Graphics/PlatformDisplay.hpp"
 #include "TeaPacket/Graphics/Viewport.hpp"
 
 
@@ -19,11 +19,13 @@ namespace TeaPacket::Graphics
         unsigned short height;  ///< Height of the Display in pixels
         std::string name; ///< Name of the display. Will be shown to the user on platforms that allow.
 
+        Viewport viewport;
+
         PlatformDisplay platformDisplay; ///< Private platform-dependent data.
 
         bool Resize(unsigned short newWidth, unsigned short newHeight);
 
-        void RenderViewport(const Viewport& viewport);
+        void PresentDisplay();
 
         /// De-initializes the Display and its graphics.
         void DeInitialize();
@@ -34,7 +36,7 @@ namespace TeaPacket::Graphics
         Display(unsigned short width, unsigned short height, const std::string& name);
 
         bool Pl_Resize(unsigned short newWidth, unsigned short newHeight);
-        void Pl_RenderViewport(const Viewport& viewport);
+        void Pl_PresentDisplay();
 
         /// Platform-Specific De-Initialize function.
         void Pl_DeInitialize();

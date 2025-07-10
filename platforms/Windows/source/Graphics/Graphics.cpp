@@ -82,12 +82,6 @@ void Graphics::Pl_BeginRenderToViewport(Viewport& viewport)
         viewport.platformViewport.depthStencilView.Get());
 
     deviceContext->RSSetViewports(1, &viewport.platformViewport.d3dviewport);
-
-
-    // DEBUG
-    float col[4] = {1.0f, 0.0f, 0.0f, 1.0f};
-    deviceContext->ClearRenderTargetView(viewport.platformViewport.renderTargetView.Get(), col);
-    deviceContext->ClearDepthStencilView(viewport.platformViewport.depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 
 void Graphics::Pl_FinishRenderToViewport()
@@ -100,5 +94,6 @@ void Graphics::Pl_ClearScreen(const Color4& color)
 {
     float colorArray[4] = {color.r() / 255.0f, color.g() / 255.0f, color.b() / 255.0f, color.a() / 255.0f};
     deviceContext->ClearRenderTargetView(currentViewport->platformViewport.renderTargetView.Get(), colorArray);
+    deviceContext->ClearDepthStencilView(currentViewport->platformViewport.depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 

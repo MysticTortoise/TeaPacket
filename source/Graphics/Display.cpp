@@ -8,7 +8,8 @@ using namespace TeaPacket::Graphics;
 Display::Display(const unsigned short width, const unsigned short height, const std::string& name):
     width(width),
     height(height),
-    name(name)
+    name(name),
+    viewport(width, height)
 {
 }
 
@@ -37,9 +38,9 @@ bool Display::Resize(const unsigned short newWidth, const unsigned short newHeig
     return false;
 }
 
-void Display::RenderViewport(const Viewport& viewport)
+void Display::PresentDisplay()
 {
-    Pl_RenderViewport(viewport);
+    Pl_PresentDisplay();
 }
 
 

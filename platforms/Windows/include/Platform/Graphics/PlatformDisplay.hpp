@@ -13,12 +13,7 @@ namespace TeaPacket::Graphics
         public:
             HWND windowHandle;
             Microsoft::WRL::ComPtr<IDXGISwapChain> swapchain;
-            Microsoft::WRL::ComPtr<ID3D11RenderTargetView> renderTargetView;
-            Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencilBuffer;
             Microsoft::WRL::ComPtr<ID3D11DepthStencilState> depthStencilState;
-            Microsoft::WRL::ComPtr<ID3D11DepthStencilView> depthStencilView;
-
-            D3D11_VIEWPORT d3dviewport;
         };
     }
     typedef Platform::WindowsDisplay PlatformDisplay;

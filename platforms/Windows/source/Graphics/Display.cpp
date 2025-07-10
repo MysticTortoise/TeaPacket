@@ -149,8 +149,7 @@ Display Display::Pl_RegisterDisplay(const unsigned short width, const unsigned s
 
     if (display.platformDisplay.windowHandle == NULL)
     {
-        DWORD dwError = GetLastError();
-        if (dwError != ERROR_CLASS_ALREADY_EXISTS)
+        if (DWORD dwError = GetLastError(); dwError != ERROR_CLASS_ALREADY_EXISTS)
         {
             CheckErrorWinCom(HRESULT_FROM_WIN32(dwError));
         }
@@ -190,10 +189,13 @@ Display Display::Pl_RegisterDisplay(const unsigned short width, const unsigned s
         display.platformDisplay.swapchain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<LPVOID*>(backbuffer.GetAddressOf()))
     );
 
+    display.viewport.texture.platformTexture.texture2d = backbuffer.Get();
+
+
     CheckErrorWinCom(
         device->CreateRenderTargetView(
             backbuffer.Get(),
-            NULL, display.platformDisplay.renderTargetView.GetAddressOf())
+            NULL, display.viewport.platformViewport.renderTargetView.ReleaseAndGetAddressOf())
         );
 
     D3D11_TEXTURE2D_DESC depthBufferDesc;
@@ -211,7 +213,7 @@ Display Display::Pl_RegisterDisplay(const unsigned short width, const unsigned s
     depthBufferDesc.MiscFlags = 0;
 
     CheckErrorWinCom(
-        device->CreateTexture2D(&depthBufferDesc, NULL, display.platformDisplay.depthStencilBuffer.GetAddressOf())
+        device->CreateTexture2D(&depthBufferDesc, NULL, display.viewport.platformViewport.depthTexture.ReleaseAndGetAddressOf())
     );
 
     D3D11_DEPTH_STENCIL_DESC depthStencilDesc;
@@ -247,15 +249,18 @@ Display Display::Pl_RegisterDisplay(const unsigned short width, const unsigned s
     depthStencilViewDesc.Texture2D.MipSlice = 0;
 
     CheckErrorWinCom(
-        device->CreateDepthStencilView(display.platformDisplay.depthStencilBuffer.Get(), &depthStencilViewDesc, display.platformDisplay.depthStencilView.GetAddressOf())
+        device->CreateDepthStencilView(\
+            display.viewport.platformViewport.depthTexture.Get(),
+            &depthStencilViewDesc,
+            display.viewport.platformViewport.depthStencilView.ReleaseAndGetAddressOf())
     );
 
-    display.platformDisplay.d3dviewport.Width = width;
-    display.platformDisplay.d3dviewport.Height = height;
-    display.platformDisplay.d3dviewport.MinDepth = 0;
-    display.platformDisplay.d3dviewport.MaxDepth = 1;
-    display.platformDisplay.d3dviewport.TopLeftX = 0;
-    display.platformDisplay.d3dviewport.TopLeftY = 0;
+    display.viewport.platformViewport.d3dviewport.Width = width;
+    display.viewport.platformViewport.d3dviewport.Height = height;
+    display.viewport.platformViewport.d3dviewport.MinDepth = 0;
+    display.viewport.platformViewport.d3dviewport.MaxDepth = 1;
+    display.viewport.platformViewport.d3dviewport.TopLeftX = 0;
+    display.viewport.platformViewport.d3dviewport.TopLeftY = 0;
 
     BlitterInit();
 
@@ -270,26 +275,11 @@ bool Display::Pl_Resize(const unsigned short newWidth, const unsigned short newH
     return true;
 }
 
-void Display::Pl_RenderViewport(const Viewport& viewport)
+void Display::Pl_PresentDisplay()
 {
-
-    deviceContext->ClearDepthStencilView(platformDisplay.depthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0);
-
-    viewport.platformViewport.texture.As(&hackyTex.platformTexture.texture2d);
-    viewport.platformViewport.shaderResourceView.As(&hackyTex.platformTexture.textureView);
-
-    deviceContext->OMSetRenderTargets(1, platformDisplay.renderTargetView.GetAddressOf(), platformDisplay.depthStencilView.Get());
-    deviceContext->RSSetViewports(1, &platformDisplay.d3dviewport);
-
-    ShaderVariableValue val;
-    val.val_tex = &hackyTex;
-    fullscreenShader.SetParameter(0, val);
-
-    fullscreenShader.UseShader();
-    fullscreenModel.Render();
-
-    platformDisplay.swapchain->Present(0, 0);
+    platformDisplay.swapchain->Present(0,0);
 }
+
 
 
 void Display::Pl_DeInitialize()

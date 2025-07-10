@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "Platform/Graphics/PlatformViewport.hpp"
+#include "TeaPacket/Graphics/Texture.hpp"
 
 namespace TeaPacket::Graphics
 {
@@ -15,6 +16,8 @@ namespace TeaPacket::Graphics
         unsigned short height; ///< The height of the viewport.
 
         PlatformViewport platformViewport; ///< Platform data.
+
+        Texture texture;
 
         /// Creates a Viewport, but does not Initialize it.
         /// @param width The width of the Viewport.

@@ -33,8 +33,6 @@ int main()
 {
 
     TeaPacket::Initialize();
-    Viewport viewport = Viewport::CreateViewport(1280, 720);
-
     const std::vector colorAttrList = {ShaderVariableType(SHADER_VAR_TYPE_FLOAT,2), ShaderVariableType(SHADER_VAR_TYPE_FLOAT, 2)};
 
     Shader shader = Shader::CreateShaderFromFiles("shaders/textured.vert", "shaders/textured.frag", colorAttrList, {ShaderVariableType(SHADER_VAR_TYPE_TEXTURE, 1)});
@@ -55,13 +53,13 @@ int main()
 
     while(ShouldRun())
     {
-        BeginRenderToViewport(viewport);
+        BeginRenderToViewport(Display::Displays.back().viewport);
         ClearScreen(Color4{20, 70, 127, 255});
         shader.UseShader();
         model.Render();
         FinishRenderToViewport();
 
-        Display::Displays.back().RenderViewport( viewport);
+        Display::Displays.back().PresentDisplay();
 
         Tick();
     }

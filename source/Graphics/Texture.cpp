@@ -6,7 +6,6 @@ using namespace TeaPacket::Graphics;
 
 void Texture::Initialize(const unsigned char* data)
 {
-    assert(data != nullptr);
     Pl_Initialize(data);
 }
 
