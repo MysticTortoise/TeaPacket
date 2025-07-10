@@ -1,5 +1,5 @@
 #include "TeaPacket/Graphics/Shader.hpp"
-#include "TeaPacket/Files/AssetReader.hpp"
+#include "TeaPacket/Assets/AssetReader.hpp"
 #include "TeaPacket/Memory/StructUtils.hpp"
 
 using namespace TeaPacket::Graphics;
@@ -35,6 +35,6 @@ void Shader::SetParameter(unsigned char index, ShaderVariableValue value)
 
 Shader Shader::CreateShaderFromFiles(const std::string& vertexShaderPath, const std::string& fragmentShaderPath, const std::vector<ShaderVariableType>& inputAttributes, const std::vector<ShaderVariableType>& uniforms)
 {
-    return CreateShader(Files::ReadTextAsset(vertexShaderPath), Files::ReadTextAsset(fragmentShaderPath), inputAttributes, uniforms);
+    return CreateShader(Assets::ReadTextAsset(vertexShaderPath), Assets::ReadTextAsset(fragmentShaderPath), inputAttributes, uniforms);
 }
 

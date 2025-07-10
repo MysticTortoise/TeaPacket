@@ -1,11 +1,11 @@
 #include <filesystem>
 
-#include "Files/Pl_AssetReader.hpp"
+#include "Assets/Pl_AssetReader.hpp"
 
 #include <fstream>
 #include <exception>
 
-std::vector<char> TeaPacket::Files::Pl_ReadAllBytesFromAsset(const std::string& asset, const bool isText)
+std::vector<char> TeaPacket::Assets::Pl_ReadAllBytesFromAsset(const std::string& asset, const bool isText)
 {
     std::ios_base::openmode openmode = std::ios::in;
     if (isText)

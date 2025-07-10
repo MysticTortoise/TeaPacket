@@ -3,11 +3,13 @@
 #include "TeaPacket/Graphics/Graphics.hpp"
 #include "TeaPacket/Graphics/Display.hpp"
 #include "TeaPacket/Graphics/Viewport.hpp"
-#include "TeaPacket/Files/AssetReader.hpp"
+#include "TeaPacket/Assets/AssetReader.hpp"
+#include "TeaPacket/Assets/AssetStream.hpp"
 #include "TeaPacket/Graphics/ShaderVariable.hpp"
 #include "TeaPacket/Graphics/Shader.hpp"
 #include "TeaPacket/Graphics/Texture.hpp"
 #include "TeaPacket/Graphics/Model.hpp"
+#include "TeaPacket/Files/AssetReader.hpp"
 
 using namespace TeaPacket;
 using namespace TeaPacket::Graphics;
@@ -50,6 +52,8 @@ int main()
     ShaderVariableValue val;
     val.tex = &texture;
     shader.SetParameter(0, val);
+
+    Assets::AssetStream stream("model.bin");
 
     while(ShouldRun())
     {
