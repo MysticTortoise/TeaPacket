@@ -48,7 +48,7 @@ int main()
     Model model = Model::CreateModel(vertVec, indices, colorAttrList);
     Texture texture = Texture::CreateTexture(tex, 3, 3, TEXTURE_FILTER_POINT, TEXTURE_WRAP_CLAMP);
     ShaderVariableValue val;
-    val.val_tex = &texture;
+    val.tex = &texture;
     shader.SetParameter(0, val);
 
     while(ShouldRun())

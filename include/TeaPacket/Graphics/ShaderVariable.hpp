@@ -17,10 +17,10 @@ namespace TeaPacket::Graphics
 
     union ShaderVariableValue
     {
-        float val_float;
-        signed int val_int;
-        unsigned int val_uint;
-        Texture* val_tex;
+        float f;
+        signed int i;
+        unsigned int ui;
+        Texture* tex;
     };
 
     /// Represents a variable within a shader.

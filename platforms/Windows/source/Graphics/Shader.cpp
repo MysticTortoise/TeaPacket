@@ -145,8 +145,8 @@ void Shader::Pl_UseShader()
         switch (uniform.type.type)
         {
         case SHADER_VAR_TYPE_TEXTURE:
-            deviceContext->PSSetShaderResources(static_cast<unsigned int>(i), 1, uniform.value.val_tex->platformTexture.textureView.GetAddressOf());
-            deviceContext->PSSetSamplers(static_cast<unsigned int>(i), 1, uniform.value.val_tex->platformTexture.samplerState.GetAddressOf());
+            deviceContext->PSSetShaderResources(static_cast<unsigned int>(i), 1, uniform.value.tex->platformTexture.textureView.GetAddressOf());
+            deviceContext->PSSetSamplers(static_cast<unsigned int>(i), 1, uniform.value.tex->platformTexture.samplerState.GetAddressOf());
             break;
         }
     }
