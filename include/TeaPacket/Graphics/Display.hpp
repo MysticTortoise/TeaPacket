@@ -23,6 +23,8 @@ namespace TeaPacket::Graphics
 
         bool Resize(unsigned short newWidth, unsigned short newHeight);
 
+        void RenderViewport(const Viewport& viewport);
+
         /// De-initializes the Display and its graphics.
         void DeInitialize();
 
@@ -32,6 +34,7 @@ namespace TeaPacket::Graphics
         Display(unsigned short width, unsigned short height, const std::string& name);
 
         bool Pl_Resize(unsigned short newWidth, unsigned short newHeight);
+        void Pl_RenderViewport(const Viewport& viewport);
 
         /// Platform-Specific De-Initialize function.
         void Pl_DeInitialize();

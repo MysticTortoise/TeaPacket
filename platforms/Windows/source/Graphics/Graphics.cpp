@@ -95,21 +95,6 @@ void Graphics::Pl_FinishRenderToViewport()
 
 }
 
-void Graphics::Pl_RenderViewportToDisplay(Display& display, Viewport& viewport)
-{
-    deviceContext->OMSetRenderTargets(1,
-            display.platformDisplay.renderTargetView.GetAddressOf(),
-            display.platformDisplay.depthStencilView.Get());
-
-    deviceContext->RSSetViewports(1, &display.platformDisplay.d3dviewport);
-
-    float colorArray[4] = {1, 0, 0, 1};
-    deviceContext->ClearRenderTargetView(display.platformDisplay.renderTargetView.Get(), colorArray);
-
-    display.platformDisplay.swapchain->Present(0, 0);
-    (void)viewport;
-}
-
 
 void Graphics::Pl_ClearScreen(const Color4& color)
 {

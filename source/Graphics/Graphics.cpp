@@ -28,11 +28,6 @@ void Graphics::FinishRenderToViewport()
     currentViewport = nullptr;
 }
 
-void Graphics::RenderViewportToDisplay(Display& display, Viewport& viewport)
-{
-    Pl_RenderViewportToDisplay(display, viewport);
-}
-
 
 void Graphics::ClearScreen(const Color4& color)
 {

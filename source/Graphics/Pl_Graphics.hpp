@@ -18,8 +18,6 @@ namespace TeaPacket::Graphics
     /// Platform-specific implementation of FinishRenderToDisplay();
     void Pl_FinishRenderToViewport();
 
-    void Pl_RenderViewportToDisplay(Display& display, Viewport& viewport);
-
     void Pl_ClearScreen(const Color4& color);
 
 

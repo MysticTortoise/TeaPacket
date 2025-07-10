@@ -21,8 +21,6 @@ namespace TeaPacket::Graphics
     /// Concludes rendering to the current Interface::Display
     void FinishRenderToViewport();
 
-    void RenderViewportToDisplay(Display& display, Viewport& viewport);
-
     /// Clears the active Display with a color.
     void ClearScreen(const Color4& color);
 

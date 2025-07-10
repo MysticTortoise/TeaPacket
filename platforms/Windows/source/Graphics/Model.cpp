@@ -5,21 +5,22 @@
 
 #include "WindowsGraphics.hpp"
 #include "Error/Win32ErrorHandling.hpp"
-#include "TeaPacket/Debug/Logging.hpp"
+#include "TeaPacket/Graphics/Shader.hpp"
+#include "TeaPacket/Graphics/ShaderVariable.hpp"
 
 using namespace TeaPacket::Graphics;
 
-static std::unordered_map<VertexAttributeType, size_t> AttributeSizes = {
-    {VERTEX_ATTR_TYPE_FLOAT, sizeof(float)},
-    {VERTEX_ATTR_TYPE_INT, sizeof(int)},
-    {VERTEX_ATTR_TYPE_UINT, sizeof(unsigned int)}
+static std::unordered_map<ShaderVariableBaseType, size_t> AttributeSizes = {
+    {SHADER_VAR_TYPE_FLOAT, sizeof(float)},
+    {SHADER_VAR_TYPE_INT, sizeof(int)},
+    {SHADER_VAR_TYPE_UINT, sizeof(unsigned int)}
 };
 
 
-void Model::Pl_Initialize(const std::vector<char>& vertexData, const std::vector<unsigned long>& indices, const std::vector<VertexAttribute>& vertexAttributes)
+void Model::Pl_Initialize(const std::vector<char>& vertexData, const std::vector<unsigned long>& indices, const std::vector<ShaderVariableType>& vertexAttributes)
 {
     size_t vertexSize = 0;
-    for (const VertexAttribute& attribute : vertexAttributes)
+    for (const ShaderVariableType& attribute : vertexAttributes)
     {
         vertexSize += AttributeSizes.at(attribute.type) * attribute.amount;
     }

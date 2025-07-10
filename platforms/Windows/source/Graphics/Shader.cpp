@@ -12,39 +12,41 @@
 
 #include "WindowsGraphics.hpp"
 #include "TeaPacket/Debug/Logging.hpp"
+#include "TeaPacket/Graphics/ShaderVariable.hpp"
+#include "TeaPacket/Graphics/Texture.hpp"
 
 using namespace TeaPacket::Graphics;
 
-static const std::array<std::unordered_map<VertexAttributeType, DXGI_FORMAT>, 4> VertexAttributeTypeToDXGIFormat = {
-    std::unordered_map<VertexAttributeType, DXGI_FORMAT>
+static const std::array<std::unordered_map<ShaderVariableBaseType, DXGI_FORMAT>, 4> VertexAttributeTypeToDXGIFormat = {
+    std::unordered_map<ShaderVariableBaseType, DXGI_FORMAT>
     {
         // Size 1
-        {VERTEX_ATTR_TYPE_FLOAT, DXGI_FORMAT_R32_FLOAT},
-        {VERTEX_ATTR_TYPE_INT, DXGI_FORMAT_R32_SINT},
-        {VERTEX_ATTR_TYPE_UINT, DXGI_FORMAT_R32_UINT}
+        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32_FLOAT},
+        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32_SINT},
+        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32_UINT}
     },
     {
         // Size 2
-        {VERTEX_ATTR_TYPE_FLOAT, DXGI_FORMAT_R32G32_FLOAT},
-        {VERTEX_ATTR_TYPE_INT, DXGI_FORMAT_R32G32_SINT},
-        {VERTEX_ATTR_TYPE_UINT, DXGI_FORMAT_R32G32_UINT}
+        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32G32_FLOAT},
+        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32G32_SINT},
+        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32G32_UINT}
     },
     {
         // Size 3
-        {VERTEX_ATTR_TYPE_FLOAT, DXGI_FORMAT_R32G32B32_FLOAT},
-        {VERTEX_ATTR_TYPE_INT, DXGI_FORMAT_R32G32B32_SINT},
-        {VERTEX_ATTR_TYPE_UINT, DXGI_FORMAT_R32G32B32_UINT}
+        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32G32B32_FLOAT},
+        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32G32B32_SINT},
+        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32G32B32_UINT}
     },
     {
         // Size 4
-        {VERTEX_ATTR_TYPE_FLOAT, DXGI_FORMAT_R32G32B32A32_FLOAT},
-        {VERTEX_ATTR_TYPE_INT, DXGI_FORMAT_R32G32B32A32_SINT},
-        {VERTEX_ATTR_TYPE_UINT, DXGI_FORMAT_R32G32B32A32_UINT}
+        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32G32B32A32_FLOAT},
+        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32G32B32A32_SINT},
+        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32G32B32A32_UINT}
     },
 };
 
 
-void Shader::Pl_Initialize(const std::string& vertexShaderCode, const std::string& fragmentShaderCode, const std::vector<VertexAttribute>& inputAttributes)
+void Shader::Pl_Initialize(const std::string& vertexShaderCode, const std::string& fragmentShaderCode, const std::vector<ShaderVariableType>& inputAttributes)
 {
     Microsoft::WRL::ComPtr<ID3D10Blob> errorMessage;
     Microsoft::WRL::ComPtr<ID3D10Blob> vertexShaderBuffer;
@@ -135,4 +137,17 @@ void Shader::Pl_UseShader()
     deviceContext->IASetInputLayout(platformShader.inputLayout.Get());
     deviceContext->VSSetShader(platformShader.vertexShader.Get(), NULL, 0);
     deviceContext->PSSetShader(platformShader.pixelShader.Get(), NULL, 0);
+
+    for (size_t i = 0; i < shaderUniforms.size(); i++)
+    {
+        const ShaderVariable& uniform = shaderUniforms[i];
+
+        switch (uniform.type.type)
+        {
+        case SHADER_VAR_TYPE_TEXTURE:
+            deviceContext->PSSetShaderResources(static_cast<unsigned int>(i), 1, uniform.value.val_tex->platformTexture.textureView.GetAddressOf());
+            deviceContext->PSSetSamplers(static_cast<unsigned int>(i), 1, uniform.value.val_tex->platformTexture.samplerState.GetAddressOf());
+            break;
+        }
+    }
 }

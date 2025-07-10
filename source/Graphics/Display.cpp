@@ -37,6 +37,11 @@ bool Display::Resize(const unsigned short newWidth, const unsigned short newHeig
     return false;
 }
 
+void Display::RenderViewport(const Viewport& viewport)
+{
+    Pl_RenderViewport(viewport);
+}
+
 
 void Display::DeInitialize()
 {
