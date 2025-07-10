@@ -34,99 +34,6 @@ static Vector2l GetDesktopResolution()
     return Vector2l{GetSystemMetrics(SM_CXFULLSCREEN), GetSystemMetrics(SM_CYFULLSCREEN)};
 }
 
-static const std::vector<char> FullscreenMesh = {
-    '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x80', '\xbf', '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x80', '\xbf', '\x00', '\x00', '\x80', '\xbf', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x80', '\xbf', '\x00', '\x00', '\x80', '\x3f', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'
-};
-static const std::vector<unsigned long> FullscreenIndices = {0, 1, 3, 1, 2, 3};
-static Model fullscreenModel;
-static Shader fullscreenShader;
-static Texture hackyTex;
-
-static const std::string vShader = R"(static float4 gl_Position;
-static float2 o_uv;
-static float2 i_uv;
-static float2 i_position;
-
-struct SPIRV_Cross_Input
-{
-    float2 i_position : TEXCOORD0;
-    float2 i_uv : TEXCOORD1;
-};
-
-struct SPIRV_Cross_Output
-{
-    float2 o_uv : TEXCOORD0;
-    float4 gl_Position : SV_Position;
-};
-
-void vert_main()
-{
-    o_uv = i_uv;
-    gl_Position = float4(i_position, 0.0f, 1.0f);
-}
-
-SPIRV_Cross_Output main(SPIRV_Cross_Input stage_input)
-{
-    i_uv = stage_input.i_uv;
-    i_position = stage_input.i_position;
-    vert_main();
-    SPIRV_Cross_Output stage_output;
-    stage_output.gl_Position = gl_Position;
-    stage_output.o_uv = o_uv;
-    return stage_output;
-}
-)";
-static const std::string pShader = R"(Texture2D<float4> u_mainTex : register(t0);
-SamplerState _u_mainTex_sampler : register(s0);
-
-static float4 o_color;
-static float2 i_uv;
-
-struct SPIRV_Cross_Input
-{
-    float2 i_uv : TEXCOORD0;
-};
-
-struct SPIRV_Cross_Output
-{
-    float4 o_color : SV_Target0;
-};
-
-void frag_main()
-{
-    o_color = u_mainTex.Sample(_u_mainTex_sampler, i_uv);
-}
-
-SPIRV_Cross_Output main(SPIRV_Cross_Input stage_input)
-{
-    i_uv = stage_input.i_uv;
-    frag_main();
-    SPIRV_Cross_Output stage_output;
-    stage_output.o_color = o_color;
-    return stage_output;
-}
-)";
-
-
-static void BlitterInit()
-{
-    static bool inited = false;
-    if (inited)
-    {
-        return;
-    }
-    inited = true;
-
-    fullscreenModel = Model::CreateModel(FullscreenMesh, FullscreenIndices, {ShaderVariableType(SHADER_VAR_TYPE_FLOAT,2), ShaderVariableType(SHADER_VAR_TYPE_FLOAT, 2)});
-    fullscreenShader = Shader::CreateShader(vShader, pShader, {ShaderVariableType(SHADER_VAR_TYPE_FLOAT,2), ShaderVariableType(SHADER_VAR_TYPE_FLOAT, 2)}, {ShaderVariableType(SHADER_VAR_TYPE_TEXTURE,1)});
-
-    D3D11_SAMPLER_DESC samplerDesc =
-        {D3D11_FILTER_MIN_MAG_MIP_POINT, D3D11_TEXTURE_ADDRESS_CLAMP, D3D11_TEXTURE_ADDRESS_CLAMP, D3D11_TEXTURE_ADDRESS_CLAMP,
-        0, 1, D3D11_COMPARISON_ALWAYS, {0,0,0,0}, 0, D3D11_FLOAT32_MAX};
-    device->CreateSamplerState(&samplerDesc, hackyTex.platformTexture.samplerState.GetAddressOf());
-
-}
-
 Display Display::Pl_RegisterDisplay(const unsigned short width, const unsigned short height, const std::string& name, bool* success)
 {
     Display display = Display(width, height, name);
@@ -261,8 +168,6 @@ Display Display::Pl_RegisterDisplay(const unsigned short width, const unsigned s
     display.viewport.platformViewport.d3dviewport.MaxDepth = 1;
     display.viewport.platformViewport.d3dviewport.TopLeftX = 0;
     display.viewport.platformViewport.d3dviewport.TopLeftY = 0;
-
-    BlitterInit();
 
     *success = true;
     return display; 
