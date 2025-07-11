@@ -7,7 +7,6 @@ var namespaceTeaPacket_1_1Graphics =
     [ "ShaderVariableType", "structTeaPacket_1_1Graphics_1_1ShaderVariableType.html", "structTeaPacket_1_1Graphics_1_1ShaderVariableType" ],
     [ "ShaderVariableValue", "unionTeaPacket_1_1Graphics_1_1ShaderVariableValue.html", "unionTeaPacket_1_1Graphics_1_1ShaderVariableValue" ],
     [ "Texture", "classTeaPacket_1_1Graphics_1_1Texture.html", "classTeaPacket_1_1Graphics_1_1Texture" ],
-    [ "TextureFormatInfo", "structTeaPacket_1_1Graphics_1_1TextureFormatInfo.html", "structTeaPacket_1_1Graphics_1_1TextureFormatInfo" ],
     [ "Viewport", "classTeaPacket_1_1Graphics_1_1Viewport.html", "classTeaPacket_1_1Graphics_1_1Viewport" ],
     [ "ShaderVariableBaseType", "namespaceTeaPacket_1_1Graphics.html#ac745dff4e7696302e3557b9f09b5100e", [
       [ "SHADER_VAR_TYPE_FLOAT", "namespaceTeaPacket_1_1Graphics.html#ac745dff4e7696302e3557b9f09b5100ea01a97c87ae71677f17c621ccbc9cefe3", null ],

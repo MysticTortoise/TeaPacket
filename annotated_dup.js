@@ -16,7 +16,6 @@ var annotated_dup =
         [ "ShaderVariableType", "structTeaPacket_1_1Graphics_1_1ShaderVariableType.html", "structTeaPacket_1_1Graphics_1_1ShaderVariableType" ],
         [ "ShaderVariableValue", "unionTeaPacket_1_1Graphics_1_1ShaderVariableValue.html", "unionTeaPacket_1_1Graphics_1_1ShaderVariableValue" ],
         [ "Texture", "classTeaPacket_1_1Graphics_1_1Texture.html", "classTeaPacket_1_1Graphics_1_1Texture" ],
-        [ "TextureFormatInfo", "structTeaPacket_1_1Graphics_1_1TextureFormatInfo.html", "structTeaPacket_1_1Graphics_1_1TextureFormatInfo" ],
         [ "Viewport", "classTeaPacket_1_1Graphics_1_1Viewport.html", "classTeaPacket_1_1Graphics_1_1Viewport" ]
       ] ],
       [ "Math", "namespaceTeaPacket_1_1Math.html", [

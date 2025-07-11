@@ -1,6 +1,5 @@
 var Texture_8hpp =
 [
-    [ "TeaPacket::Graphics::TextureFormatInfo", "structTeaPacket_1_1Graphics_1_1TextureFormatInfo.html", "structTeaPacket_1_1Graphics_1_1TextureFormatInfo" ],
     [ "TeaPacket::Graphics::Texture", "classTeaPacket_1_1Graphics_1_1Texture.html", "classTeaPacket_1_1Graphics_1_1Texture" ],
     [ "TeaPacket::Graphics::TextureFilterType", "namespaceTeaPacket_1_1Graphics.html#af68d4fdade500405ddf19352b894e661", [
       [ "TeaPacket::Graphics::TEXTURE_FILTER_POINT", "namespaceTeaPacket_1_1Graphics.html#af68d4fdade500405ddf19352b894e661aa01f20bc6883c8c8cd7389123d79d324", null ],
