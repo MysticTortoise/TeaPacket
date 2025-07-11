@@ -22,6 +22,20 @@ size_t AssetStream::Tell()
     return Pl_Tell();
 }
 
+void AssetStream::Skip(size_t length)
+{
+    Seek(length, std::ios::cur);
+}
+
+
+char AssetStream::ReadByte()
+{
+    char a;
+    ReadBytes(1, &a);
+    return a;
+}
+
+
 std::vector<char> AssetStream::ReadBytes(const size_t length)
 {
     std::vector<char> vec = std::vector<char>(length);

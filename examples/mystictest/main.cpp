@@ -9,15 +9,17 @@
 #include "TeaPacket/Graphics/Shader.hpp"
 #include "TeaPacket/Graphics/Texture.hpp"
 #include "TeaPacket/Graphics/Model.hpp"
-#include "TeaPacket/Files/AssetReader.hpp"
+#include "TeaPacket/Assets/AssetReaders/TGAReader.hpp"
 
 using namespace TeaPacket;
 using namespace TeaPacket::Graphics;
 
 constexpr float verts[] = {
-                -1, -1, 0, 1,
-                0, 1, 0.5f, 0,
-                1, -1, 1, 1};
+    1, 1, 1, 0,
+    1, -1, 1, 1,
+    -1, -1, 0, 1,
+    -1, 1, 0, 0
+};
 
 const unsigned char tex[] = {
     255, 0, 0, 255,
@@ -46,9 +48,9 @@ int main()
         vertVec.push_back(vertBytes[i]);
     }
 
-    const std::vector<unsigned long> indices = {0, 1, 2};
+    const std::vector<unsigned long> indices = {0, 1, 3, 1, 2, 3};
     Model model = Model::CreateModel(vertVec, indices, colorAttrList);
-    Texture texture = Texture::CreateTexture(tex, 3, 3, TEXTURE_FILTER_POINT, TEXTURE_WRAP_CLAMP);
+    Texture texture = Assets::ReadTGA("test.tga");
     ShaderVariableValue val;
     val.tex = &texture;
     shader.SetParameter(0, val);

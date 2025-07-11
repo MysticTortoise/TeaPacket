@@ -1,4 +1,6 @@
 #include "TeaPacket/Assets/AssetStream.hpp"
+
+#include "TeaPacket/Debug/Logging.hpp"
 #include "TeaPacket/Memory/Endianness.hpp"
 
 using namespace TeaPacket::Assets;
@@ -6,12 +8,19 @@ using namespace TeaPacket::Memory;
 
 void AssetStream::Pl_Initialize(const std::string& path)
 {
-    platformStream.stream.open("assets/" + path);
+    platformStream.stream.open("assets/" + path, std::ios::binary);
 }
 
 void AssetStream::Pl_ReadBytes(size_t length, char* dest)
 {
     platformStream.stream.read(dest, length);
+
+    if (platformStream.stream.bad())
+    {
+        std::perror("");
+        throw std::exception();
+    }
+
     endOfField = platformStream.stream.eof();
 }
 

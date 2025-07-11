@@ -18,6 +18,10 @@ namespace TeaPacket::Assets
         void Seek(ptrdiff_t amount, std::ios::seekdir dir);
         size_t Tell();
 
+
+        void Skip(size_t length);
+
+        char ReadByte();
         std::vector<char> ReadBytes(size_t length);
 
         template<typename T>

@@ -20,8 +20,36 @@ static const std::unordered_map<TextureWrapType, D3D11_TEXTURE_ADDRESS_MODE> d3d
     {TEXTURE_WRAP_CLAMP, D3D11_TEXTURE_ADDRESS_CLAMP}
 };
 
+static const std::unordered_map<TextureFormat, DXGI_FORMAT> d3dFormatMap = {
+    {TEXTURE_FORMAT_RGBA8, DXGI_FORMAT_R8G8B8A8_UNORM},
+    {TEXTURE_FORMAT_RGB8, DXGI_FORMAT_R8G8B8A8_UNORM}
+};
+
+static unsigned char* FUCK_MICROSOFT(const unsigned char* data, unsigned short width, unsigned short height)
+{
+    size_t src = 0;
+    size_t dst = 0;
+    unsigned char* newData = new unsigned char[width * height * 4];
+    for (unsigned short y = 0; y < height; y++)
+    {
+        for (unsigned short x = 0; x < width; x++)
+        {
+            memcpy(&newData[dst], &data[src], 3);
+            newData[dst+3] = 0;
+            dst += 4;
+            src += 3;
+        }
+    }
+    return newData;
+}
+
 void Texture::Pl_Initialize(const unsigned char* data)
 {
+    if (GetFormatInfo(format).channelCount == 3)
+    {
+        data = FUCK_MICROSOFT(data, width, height);
+    }
+
     D3D11_TEXTURE2D_DESC textureDesc;
     textureDesc.Height = height;
     textureDesc.Width = width;
@@ -44,6 +72,10 @@ void Texture::Pl_Initialize(const unsigned char* data)
     if (data != nullptr)
     {
         deviceContext->UpdateSubresource(platformTexture.texture2d.Get(), 0, NULL, data, rowPitch, 0);
+        if (GetFormatInfo(format).channelCount == 3)
+        {
+            delete[] data;
+        }
     }
 
     D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;

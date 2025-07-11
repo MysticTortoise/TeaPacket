@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "Platform/Graphics/PlatformTexture.hpp"
 
 namespace TeaPacket::Graphics
@@ -17,14 +19,30 @@ namespace TeaPacket::Graphics
         TEXTURE_WRAP_CLAMP
     };
 
+    enum TextureFormat : unsigned short
+    {
+        TEXTURE_FORMAT_RGBA8,
+        TEXTURE_FORMAT_RGB8,
+    };
+
+    struct TextureFormatInfo
+    {
+        unsigned char channelCount;
+        std::vector<unsigned char> channelSizes;
+
+        TextureFormatInfo(unsigned char channelCount, const std::vector<unsigned char>& channelSizes):
+        channelCount(channelCount), channelSizes(channelSizes){}
+    };
+
 
     class Texture
     {
     public:
         unsigned short width;
         unsigned short height;
-        TextureFilterType filterType;
-        TextureWrapType wrapType;
+        TextureFilterType filterType = TEXTURE_FILTER_LINEAR;
+        TextureWrapType wrapType = TEXTURE_WRAP_REPEAT;
+        TextureFormat format = TEXTURE_FORMAT_RGBA8;
 
 
         PlatformTexture platformTexture;
@@ -43,6 +61,8 @@ namespace TeaPacket::Graphics
         /// @param wrapType The wrap method used by the texture.
         static Texture CreateTexture(const unsigned char* data, unsigned short width, unsigned short height,
             TextureFilterType filterType = TEXTURE_FILTER_LINEAR, TextureWrapType wrapType = TEXTURE_WRAP_REPEAT);
+
+        static TextureFormatInfo GetFormatInfo(TextureFormat format);
     private:
     };
 }
