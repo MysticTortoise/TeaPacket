@@ -59,7 +59,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AssetStream_8hpp.html",
-"dir_c346a552599faf569b8b4ed9fd41bd76.html"
+"classTeaPacket_1_1Math_1_1Vector.html#af51e17e4b4a86f1a13308b5b4895f8cb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
