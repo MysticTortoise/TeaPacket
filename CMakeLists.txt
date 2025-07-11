@@ -40,7 +40,7 @@ target_include_directories(TeaPacket PUBLIC include)
 
 # Enable warnings and treat warnings as errors.
 if(MSVC)
-    target_compile_options(TeaPacket PRIVATE /W4 /WX)
+    target_compile_options(TeaPacket PRIVATE /W4 /WX /we4062)
 else()
     target_compile_options(TeaPacket PRIVATE
             -Wall -Wextra -Wpedantic -Werror

@@ -1,30 +1,44 @@
 #include "TeaPacket/Graphics/Texture.hpp"
 
-#include <unordered_map>
-
 #include "WindowsGraphics.hpp"
 #include "../Error/Win32ErrorHandling.hpp"
 #include "TeaPacket/Memory/StructUtils.hpp"
 
 using namespace TeaPacket::Graphics;
 
+static constexpr D3D11_FILTER GetD3DFilter(TextureFilterType filter)
+{
+    switch (filter)
+    {
+    case TEXTURE_FILTER_POINT: return D3D11_FILTER_MIN_MAG_MIP_POINT;
+    case TEXTURE_FILTER_LINEAR: return D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+    }
+    throw std::exception();
+}
 
-static const std::unordered_map<TextureFilterType, D3D11_FILTER> d3dFilterMap = {
-    {TEXTURE_FILTER_POINT, D3D11_FILTER_MIN_MAG_MIP_POINT},
-    {TEXTURE_FILTER_LINEAR, D3D11_FILTER_MIN_MAG_MIP_LINEAR}
-};
+static constexpr D3D11_TEXTURE_ADDRESS_MODE GetD3DWrap(TextureWrapType wrap)
+{
+    switch (wrap)
+    {
+    case TEXTURE_WRAP_REPEAT: return D3D11_TEXTURE_ADDRESS_WRAP;
+    case TEXTURE_WRAP_MIRROR: return D3D11_TEXTURE_ADDRESS_MIRROR;
+    case TEXTURE_WRAP_CLAMP: return D3D11_TEXTURE_ADDRESS_CLAMP;
+    }
+    throw std::exception();
+}
 
-static const std::unordered_map<TextureWrapType, D3D11_TEXTURE_ADDRESS_MODE> d3dWrapMap = {
-    {TEXTURE_WRAP_REPEAT, D3D11_TEXTURE_ADDRESS_WRAP},
-    {TEXTURE_WRAP_MIRROR, D3D11_TEXTURE_ADDRESS_MIRROR},
-    {TEXTURE_WRAP_CLAMP, D3D11_TEXTURE_ADDRESS_CLAMP}
-};
+static constexpr DXGI_FORMAT GetD3DFormat(TextureFormat format)
+{
+    switch(format)
+    {
+    case TEXTURE_FORMAT_RGBA8: return DXGI_FORMAT_R8G8B8A8_UNORM;
+    case TEXTURE_FORMAT_RGB8: return DXGI_FORMAT_R8G8B8A8_UNORM;
+    }
+    throw std::exception();
+}
 
-static const std::unordered_map<TextureFormat, DXGI_FORMAT> d3dFormatMap = {
-    {TEXTURE_FORMAT_RGBA8, DXGI_FORMAT_R8G8B8A8_UNORM},
-    {TEXTURE_FORMAT_RGB8, DXGI_FORMAT_R8G8B8A8_UNORM}
-};
-
+/// Converts 24 bpp textures to 32bpp textures because FUCK MICROSOFT \n
+/// Seriously they got rid of 24bpp textures in Direct3D 11 WHYYYYYYY
 static unsigned char* FUCK_MICROSOFT(const unsigned char* data, unsigned short width, unsigned short height)
 {
     size_t src = 0;
@@ -45,7 +59,7 @@ static unsigned char* FUCK_MICROSOFT(const unsigned char* data, unsigned short w
 
 void Texture::Pl_Initialize(const unsigned char* data)
 {
-    if (GetFormatInfo(format).channelCount == 3)
+    if (GetFormatChannelSizes(format).size() == 3)
     {
         data = FUCK_MICROSOFT(data, width, height);
     }
@@ -55,7 +69,7 @@ void Texture::Pl_Initialize(const unsigned char* data)
     textureDesc.Width = width;
     textureDesc.MipLevels = 0;
     textureDesc.ArraySize = 1;
-    textureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+    textureDesc.Format = GetD3DFormat(format);
     textureDesc.SampleDesc.Count = 1;
     textureDesc.SampleDesc.Quality = 0;
     textureDesc.Usage = D3D11_USAGE_DEFAULT;
@@ -72,7 +86,7 @@ void Texture::Pl_Initialize(const unsigned char* data)
     if (data != nullptr)
     {
         deviceContext->UpdateSubresource(platformTexture.texture2d.Get(), 0, NULL, data, rowPitch, 0);
-        if (GetFormatInfo(format).channelCount == 3)
+        if (GetFormatChannelSizes(format).size() == 3)
         {
             delete[] data;
         }
@@ -91,8 +105,8 @@ void Texture::Pl_Initialize(const unsigned char* data)
 
     D3D11_SAMPLER_DESC samplerDesc;
 
-    samplerDesc.Filter = d3dFilterMap.at(filterType);
-    D3D11_TEXTURE_ADDRESS_MODE d3dWrapType = d3dWrapMap.at(wrapType);
+    samplerDesc.Filter = GetD3DFilter(filterType);
+    D3D11_TEXTURE_ADDRESS_MODE d3dWrapType = GetD3DWrap(wrapType);
     samplerDesc.AddressU = d3dWrapType;
     samplerDesc.AddressV = d3dWrapType;
     samplerDesc.AddressW = d3dWrapType;

@@ -8,7 +8,6 @@
 #include <iostream>
 #include <vector>
 #include <array>
-#include <unordered_map>
 
 #include "WindowsGraphics.hpp"
 #include "TeaPacket/Debug/Logging.hpp"
@@ -17,33 +16,45 @@
 
 using namespace TeaPacket::Graphics;
 
-static const std::array<std::unordered_map<ShaderVariableBaseType, DXGI_FORMAT>, 4> VertexAttributeTypeToDXGIFormat = {
-    std::unordered_map<ShaderVariableBaseType, DXGI_FORMAT>
+static constexpr DXGI_FORMAT GetDXGIFormatFromVertexAttribute(ShaderVariableType shaderVarType)
+{
+    switch (shaderVarType.amount)
     {
-        // Size 1
-        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32_FLOAT},
-        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32_SINT},
-        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32_UINT}
-    },
-    {
-        // Size 2
-        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32G32_FLOAT},
-        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32G32_SINT},
-        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32G32_UINT}
-    },
-    {
-        // Size 3
-        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32G32B32_FLOAT},
-        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32G32B32_SINT},
-        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32G32B32_UINT}
-    },
-    {
-        // Size 4
-        {SHADER_VAR_TYPE_FLOAT, DXGI_FORMAT_R32G32B32A32_FLOAT},
-        {SHADER_VAR_TYPE_INT, DXGI_FORMAT_R32G32B32A32_SINT},
-        {SHADER_VAR_TYPE_UINT, DXGI_FORMAT_R32G32B32A32_UINT}
-    },
-};
+    case 1:
+        switch (shaderVarType.type)
+        {
+        case SHADER_VAR_TYPE_FLOAT: return DXGI_FORMAT_R32_FLOAT;
+        case SHADER_VAR_TYPE_INT: return DXGI_FORMAT_R32_SINT;
+        case SHADER_VAR_TYPE_UINT: return DXGI_FORMAT_R32_UINT;
+        case SHADER_VAR_TYPE_TEXTURE: return DXGI_FORMAT_UNKNOWN;
+        }
+    case 2:
+        switch (shaderVarType.type)
+        {
+        case SHADER_VAR_TYPE_FLOAT: return DXGI_FORMAT_R32G32_FLOAT;
+        case SHADER_VAR_TYPE_INT: return DXGI_FORMAT_R32G32_SINT;
+        case SHADER_VAR_TYPE_UINT: return DXGI_FORMAT_R32G32_UINT;
+        case SHADER_VAR_TYPE_TEXTURE: return DXGI_FORMAT_UNKNOWN;
+        }
+    case 3:
+        switch (shaderVarType.type)
+        {
+        case SHADER_VAR_TYPE_FLOAT: return DXGI_FORMAT_R32G32B32_FLOAT;
+        case SHADER_VAR_TYPE_INT: return DXGI_FORMAT_R32G32B32_SINT;
+        case SHADER_VAR_TYPE_UINT: return DXGI_FORMAT_R32G32B32_UINT;
+        case SHADER_VAR_TYPE_TEXTURE: return DXGI_FORMAT_UNKNOWN;
+        }
+    case 4:
+        switch (shaderVarType.type)
+        {
+        case SHADER_VAR_TYPE_FLOAT: return DXGI_FORMAT_R32G32B32A32_FLOAT;
+        case SHADER_VAR_TYPE_INT: return DXGI_FORMAT_R32G32B32A32_SINT;
+        case SHADER_VAR_TYPE_UINT: return DXGI_FORMAT_R32G32B32A32_UINT;
+        case SHADER_VAR_TYPE_TEXTURE: return DXGI_FORMAT_UNKNOWN;
+        }
+    }
+    throw std::exception();
+}
 
 
 void Shader::Pl_Initialize(const std::string& vertexShaderCode, const std::string& fragmentShaderCode, const std::vector<ShaderVariableType>& inputAttributes)
@@ -116,7 +127,7 @@ void Shader::Pl_Initialize(const std::string& vertexShaderCode, const std::strin
     {
         polygonLayout[i].SemanticName = "TEXCOORD";
         polygonLayout[i].SemanticIndex = static_cast<unsigned int>(i);
-        polygonLayout[i].Format = VertexAttributeTypeToDXGIFormat[inputAttributes[i].amount-1].at(inputAttributes[i].type);
+        polygonLayout[i].Format = GetDXGIFormatFromVertexAttribute(inputAttributes[i]);
         polygonLayout[i].InputSlot = 0;
         polygonLayout[i].AlignedByteOffset = i == 0 ? 0 : D3D11_APPEND_ALIGNED_ELEMENT;
         polygonLayout[i].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
@@ -147,6 +158,8 @@ void Shader::Pl_UseShader()
         case SHADER_VAR_TYPE_TEXTURE:
             deviceContext->PSSetShaderResources(static_cast<unsigned int>(i), 1, uniform.value.tex->platformTexture.textureView.GetAddressOf());
             deviceContext->PSSetSamplers(static_cast<unsigned int>(i), 1, uniform.value.tex->platformTexture.samplerState.GetAddressOf());
+            break;
+        default:
             break;
         }
     }

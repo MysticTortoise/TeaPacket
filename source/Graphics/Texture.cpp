@@ -1,6 +1,5 @@
 #include "TeaPacket/Graphics/Texture.hpp"
 
-#include <unordered_map>
 
 using namespace TeaPacket::Graphics;
 
@@ -19,14 +18,4 @@ Texture Texture::CreateTexture(const unsigned char* data, unsigned short width, 
     texture.Initialize(data);
 
     return texture;
-}
-
-const static std::unordered_map<TextureFormat, TextureFormatInfo> formatInfo = {
-    {TEXTURE_FORMAT_RGBA8, TextureFormatInfo(4, {8,8,8,8})},
-    {TEXTURE_FORMAT_RGB8, TextureFormatInfo(3, {8,8,8})}
-};
-
-TextureFormatInfo Texture::GetFormatInfo(TextureFormat format)
-{
-    return formatInfo.at(format);
 }

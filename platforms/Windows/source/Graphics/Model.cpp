@@ -1,7 +1,6 @@
 #include "TeaPacket/Graphics/Model.hpp"
 
 #include <d3d11.h>
-#include <unordered_map>
 
 #include "WindowsGraphics.hpp"
 #include "Error/Win32ErrorHandling.hpp"
@@ -10,11 +9,17 @@
 
 using namespace TeaPacket::Graphics;
 
-static std::unordered_map<ShaderVariableBaseType, size_t> AttributeSizes = {
-    {SHADER_VAR_TYPE_FLOAT, sizeof(float)},
-    {SHADER_VAR_TYPE_INT, sizeof(int)},
-    {SHADER_VAR_TYPE_UINT, sizeof(unsigned int)}
-};
+constexpr size_t GetAttributeSize(ShaderVariableBaseType type)
+{
+    switch (type)
+    {
+    case SHADER_VAR_TYPE_FLOAT: return sizeof(float);
+    case SHADER_VAR_TYPE_INT: return sizeof(int);
+    case SHADER_VAR_TYPE_UINT: return sizeof(unsigned int);
+    case SHADER_VAR_TYPE_TEXTURE: return 0;
+    }
+    throw std::exception();
+}
 
 
 void Model::Pl_Initialize(const std::vector<char>& vertexData, const std::vector<unsigned long>& indices, const std::vector<ShaderVariableType>& vertexAttributes)
@@ -22,7 +27,7 @@ void Model::Pl_Initialize(const std::vector<char>& vertexData, const std::vector
     size_t vertexSize = 0;
     for (const ShaderVariableType& attribute : vertexAttributes)
     {
-        vertexSize += AttributeSizes.at(attribute.type) * attribute.amount;
+        vertexSize += GetAttributeSize(attribute.type) * attribute.amount;
     }
 
     D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;

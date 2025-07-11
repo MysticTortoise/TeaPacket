@@ -39,8 +39,8 @@ namespace TeaPacket::Graphics
         /// The size of the attribute. A singular value is 1, while vectors are 2+.
         unsigned char amount;
 
-        ShaderVariableType():type(static_cast<ShaderVariableBaseType>(0)), amount(0) {}
-        ShaderVariableType(ShaderVariableBaseType type, unsigned char amount) : type(type), amount(amount){}
+        constexpr ShaderVariableType():type(static_cast<ShaderVariableBaseType>(0)), amount(0) {}
+        constexpr ShaderVariableType(ShaderVariableBaseType type, unsigned char amount) : type(type), amount(amount){}
     };
 
     struct ShaderVariable

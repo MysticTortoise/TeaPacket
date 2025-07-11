@@ -25,15 +25,6 @@ namespace TeaPacket::Graphics
         TEXTURE_FORMAT_RGB8,
     };
 
-    struct TextureFormatInfo
-    {
-        unsigned char channelCount;
-        std::vector<unsigned char> channelSizes;
-
-        TextureFormatInfo(unsigned char channelCount, const std::vector<unsigned char>& channelSizes):
-        channelCount(channelCount), channelSizes(channelSizes){}
-    };
-
 
     class Texture
     {
@@ -62,7 +53,15 @@ namespace TeaPacket::Graphics
         static Texture CreateTexture(const unsigned char* data, unsigned short width, unsigned short height,
             TextureFilterType filterType = TEXTURE_FILTER_LINEAR, TextureWrapType wrapType = TEXTURE_WRAP_REPEAT);
 
-        static TextureFormatInfo GetFormatInfo(TextureFormat format);
+        static constexpr std::vector<unsigned char> GetFormatChannelSizes(TextureFormat format){
+            switch (format)
+            {
+            case TEXTURE_FORMAT_RGBA8: return {8,8,8,8};
+            case TEXTURE_FORMAT_RGB8: return {8,8,8};
+            }
+            throw std::exception();
+        }
+
     private:
     };
 }
