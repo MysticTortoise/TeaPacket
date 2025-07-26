@@ -4,6 +4,5 @@ var searchData=
   ['createmodel_1',['CreateModel',['../classTeaPacket_1_1Graphics_1_1Model.html#a9089f2df1e356b9222d304a3fa450ea4',1,'TeaPacket::Graphics::Model']]],
   ['createshader_2',['CreateShader',['../classTeaPacket_1_1Graphics_1_1Shader.html#ad68f7de4e0b6df9db8a3b330d23ab8c5',1,'TeaPacket::Graphics::Shader']]],
   ['createshaderfromfiles_3',['CreateShaderFromFiles',['../classTeaPacket_1_1Graphics_1_1Shader.html#a4fe7f934a8cbd348fdedfc8e072332da',1,'TeaPacket::Graphics::Shader']]],
-  ['createtexture_4',['CreateTexture',['../classTeaPacket_1_1Graphics_1_1Texture.html#a8d7d6c1604cd5bfd6a587c2e131e6570',1,'TeaPacket::Graphics::Texture']]],
-  ['createviewport_5',['CreateViewport',['../classTeaPacket_1_1Graphics_1_1Viewport.html#a0028778f3e296a7a8971e7dad1d85be1',1,'TeaPacket::Graphics::Viewport']]]
+  ['createviewport_4',['CreateViewport',['../classTeaPacket_1_1Graphics_1_1Viewport.html#a0028778f3e296a7a8971e7dad1d85be1',1,'TeaPacket::Graphics::Viewport']]]
 ];

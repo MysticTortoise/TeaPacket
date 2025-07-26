@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "TeaPacket", "index.html", [
+    [ "CMake Variables", "CMakeVars.html", "CMakeVars" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -59,7 +60,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AssetStream_8hpp.html",
-"classTeaPacket_1_1Math_1_1Vector.html#af51e17e4b4a86f1a13308b5b4895f8cb"
+"classTeaPacket_1_1Math_1_1Vector.html#aca37312e3dd60e95bc393b3a563d536e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
