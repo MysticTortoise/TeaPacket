@@ -9,8 +9,8 @@ void Viewport::Pl_Initialize()
 
     texture.height = height;
     texture.width = width;
-    texture.filterType = TEXTURE_FILTER_POINT;
-    texture.wrapType = TEXTURE_WRAP_CLAMP;
+    texture.filterType = TextureFilterType::POINT;
+    texture.wrapType = TextureWrapType::CLAMP;
 
     texture.Initialize(nullptr);
 

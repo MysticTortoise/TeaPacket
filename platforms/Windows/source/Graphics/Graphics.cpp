@@ -64,7 +64,7 @@ bool Graphics::Pl_Initialize()
 
     const Display* display = Display::RegisterDisplay(1280, 720, "TeaPacket");
 
-    return display == nullptr;
+    return display != nullptr;
 }
 
 void Graphics::Pl_DeInitialize()

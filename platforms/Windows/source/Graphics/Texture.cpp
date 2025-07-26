@@ -1,8 +1,11 @@
 #include "TeaPacket/Graphics/Texture.hpp"
 
+#include <numeric>
+
 #include "WindowsGraphics.hpp"
-#include "../Error/Win32ErrorHandling.hpp"
+#include "Error/Win32ErrorHandling.hpp"
 #include "TeaPacket/Memory/StructUtils.hpp"
+#include "Graphics/Texture/TextureConversion.hpp"
 
 using namespace TeaPacket::Graphics;
 
@@ -10,8 +13,8 @@ static constexpr D3D11_FILTER GetD3DFilter(TextureFilterType filter)
 {
     switch (filter)
     {
-    case TEXTURE_FILTER_POINT: return D3D11_FILTER_MIN_MAG_MIP_POINT;
-    case TEXTURE_FILTER_LINEAR: return D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+    case TextureFilterType::POINT: return D3D11_FILTER_MIN_MAG_MIP_POINT;
+    case TextureFilterType::LINEAR: return D3D11_FILTER_MIN_MAG_MIP_LINEAR;
     }
     throw std::exception();
 }
@@ -20,49 +23,58 @@ static constexpr D3D11_TEXTURE_ADDRESS_MODE GetD3DWrap(TextureWrapType wrap)
 {
     switch (wrap)
     {
-    case TEXTURE_WRAP_REPEAT: return D3D11_TEXTURE_ADDRESS_WRAP;
-    case TEXTURE_WRAP_MIRROR: return D3D11_TEXTURE_ADDRESS_MIRROR;
-    case TEXTURE_WRAP_CLAMP: return D3D11_TEXTURE_ADDRESS_CLAMP;
+    case TextureWrapType::REPEAT: return D3D11_TEXTURE_ADDRESS_WRAP;
+    case TextureWrapType::MIRROR: return D3D11_TEXTURE_ADDRESS_MIRROR;
+    case TextureWrapType::CLAMP: return D3D11_TEXTURE_ADDRESS_CLAMP;
+    }
+    throw std::exception();
+}
+
+TextureFormat TeaPacket::Graphics::Pl_TexConvertToNativeFormat(unsigned char** data, unsigned short width, unsigned short height, TextureFormat format)
+{
+    switch (format)
+    {
+        using enum TextureFormat;
+        // Supported formats
+    case RGBA8:
+    case BGRA8:
+    case BGR5A1:
+    case R8:
+        return format;
+
+        // Unsupported formats (will be converted)
+    case RGB8:
+        TEX_BPP24_TO_32(data, width, height);
+        return RGBA8;
+
+    case BGR8:
+        TEX_BPP24_TO_32(data, width, height);
+        return BGRA8;
+
+    case RGB5A1:
+        TEX_SWAP_RANDB(data, width, height, RGB5A1);
+        return BGR5A1;
+    case NONE: throw std::exception();
     }
     throw std::exception();
 }
 
 static constexpr DXGI_FORMAT GetD3DFormat(TextureFormat format)
 {
+    using enum TextureFormat;
     switch(format)
     {
-    case TEXTURE_FORMAT_RGBA8: return DXGI_FORMAT_R8G8B8A8_UNORM;
-    case TEXTURE_FORMAT_RGB8: return DXGI_FORMAT_R8G8B8A8_UNORM;
+    case RGBA8: return DXGI_FORMAT_R8G8B8A8_UNORM;
+    case BGRA8: return DXGI_FORMAT_B8G8R8A8_UNORM;
+    case BGR5A1: return DXGI_FORMAT_B5G5R5A1_UNORM;
+    case R8: return DXGI_FORMAT_R8_UNORM;
+    default:
+        throw std::exception();
     }
-    throw std::exception();
 }
 
-/// Converts 24 bpp textures to 32bpp textures because FUCK MICROSOFT \n
-/// Seriously they got rid of 24bpp textures in Direct3D 11 WHYYYYYYY
-static unsigned char* FUCK_MICROSOFT(const unsigned char* data, unsigned short width, unsigned short height)
+void Texture::Pl_Initialize(unsigned char* data)
 {
-    size_t src = 0;
-    size_t dst = 0;
-    unsigned char* newData = new unsigned char[width * height * 4];
-    for (unsigned short y = 0; y < height; y++)
-    {
-        for (unsigned short x = 0; x < width; x++)
-        {
-            memcpy(&newData[dst], &data[src], 3);
-            newData[dst+3] = 0;
-            dst += 4;
-            src += 3;
-        }
-    }
-    return newData;
-}
-
-void Texture::Pl_Initialize(const unsigned char* data)
-{
-    if (GetFormatChannelSizes(format).size() == 3)
-    {
-        data = FUCK_MICROSOFT(data, width, height);
-    }
 
     D3D11_TEXTURE2D_DESC textureDesc;
     textureDesc.Height = height;
@@ -81,15 +93,13 @@ void Texture::Pl_Initialize(const unsigned char* data)
         device->CreateTexture2D(&textureDesc, NULL, platformTexture.texture2d.ReleaseAndGetAddressOf())
     );
 
-    unsigned int rowPitch = width * 4 * sizeof(unsigned char);
+    std::vector<unsigned char> channelSizes = GetFormatChannelSizes(format);
+    unsigned int bytesPerPixel = std::accumulate(channelSizes.begin(), channelSizes.end(), 0) / 8;
+    unsigned int rowPitch = width * bytesPerPixel * sizeof(unsigned char);
 
     if (data != nullptr)
     {
         deviceContext->UpdateSubresource(platformTexture.texture2d.Get(), 0, NULL, data, rowPitch, 0);
-        if (GetFormatChannelSizes(format).size() == 3)
-        {
-            delete[] data;
-        }
     }
 
     D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc;

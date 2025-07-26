@@ -3,6 +3,17 @@
 
 using namespace TeaPacket::Assets;
 
+bool TeaPacket::Assets::Initialize()
+{
+    return Pl_Initialize();
+}
+
+void TeaPacket::Assets::DeInitialize()
+{
+    Pl_DeInitialize();
+}
+
+
 std::string TeaPacket::Assets::ReadTextAsset(const std::string& path)
 {
     std::vector<char> vec = Pl_ReadAllBytesFromAsset(path, false);

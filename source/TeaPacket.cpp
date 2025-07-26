@@ -5,6 +5,7 @@
 
 #include "TeaPacket/Interface/Interface.hpp"
 #include "TeaPacket/Graphics/Graphics.hpp"
+#include "TeaPacket/Assets/AssetReader.hpp"
 
 bool TeaPacket::Initialize()
 {
@@ -13,6 +14,9 @@ bool TeaPacket::Initialize()
 
     if (!Graphics::Initialize()) { return false; }
     Graphics::initialized = true;
+
+    if (!Assets::Initialize()) { return false; }
+    Assets::initialized = true;
 
     return true;
 }
@@ -29,6 +33,9 @@ void TeaPacket::Tick()
 
 void TeaPacket::DeInitialize()
 {
+    Assets::DeInitialize();
+    Assets::initialized = false;
+
     Graphics::DeInitialize();
     Graphics::initialized = false;
 

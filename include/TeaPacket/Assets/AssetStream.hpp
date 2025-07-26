@@ -33,6 +33,10 @@ namespace TeaPacket::Assets
         }
 
 
+        int8_t ReadSInt8() { return ReadVal<int8_t>(); }
+        uint8_t ReadUInt8() { return ReadVal<uint8_t>(); }
+
+
         int16_t ReadSInt16LittleEndian();
         uint16_t ReadUInt16LittleEndian();
         int32_t ReadSInt32LittleEndian();

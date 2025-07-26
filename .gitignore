@@ -35,3 +35,5 @@ doxygen/private/
 doxygen/public/
 doxygen/generate.bat
 build/
+
+.vs/

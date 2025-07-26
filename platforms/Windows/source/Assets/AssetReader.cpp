@@ -5,6 +5,19 @@
 #include <fstream>
 #include <exception>
 
+#include "TeaPacket/Debug/Logging.hpp"
+
+bool TeaPacket::Assets::Pl_Initialize()
+{
+    PrintLine(std::filesystem::current_path().string());
+    return true;
+}
+
+void TeaPacket::Assets::Pl_DeInitialize()
+{
+
+}
+
 std::vector<char> TeaPacket::Assets::Pl_ReadAllBytesFromAsset(const std::string& asset, const bool isText)
 {
     std::ios_base::openmode openmode = std::ios::in;

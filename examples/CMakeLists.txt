@@ -1,1 +1,2 @@
 add_subdirectory(mystictest)
+add_subdirectory(tgaLoader)

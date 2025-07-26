@@ -6,23 +6,29 @@
 
 namespace TeaPacket::Graphics
 {
-    enum TextureFilterType : unsigned char
+    enum class TextureFilterType : unsigned char
     {
-        TEXTURE_FILTER_POINT,
-        TEXTURE_FILTER_LINEAR
+        POINT,
+        LINEAR
     };
 
-    enum TextureWrapType : unsigned char
+    enum class TextureWrapType : unsigned char
     {
-        TEXTURE_WRAP_REPEAT,
-        TEXTURE_WRAP_MIRROR,
-        TEXTURE_WRAP_CLAMP
+        REPEAT,
+        MIRROR,
+        CLAMP
     };
 
-    enum TextureFormat : unsigned short
+    enum class TextureFormat : unsigned short
     {
-        TEXTURE_FORMAT_RGBA8,
-        TEXTURE_FORMAT_RGB8,
+        RGBA8, ///< A 4 channel 8 bpp texture format that supports 8 channels for Red, Green, Blue, Alpha
+        RGB8,
+        BGRA8,
+        BGR8,
+        RGB5A1,
+        BGR5A1,
+        R8,
+        NONE
     };
 
 
@@ -31,33 +37,34 @@ namespace TeaPacket::Graphics
     public:
         unsigned short width;
         unsigned short height;
-        TextureFilterType filterType = TEXTURE_FILTER_LINEAR;
-        TextureWrapType wrapType = TEXTURE_WRAP_REPEAT;
-        TextureFormat format = TEXTURE_FORMAT_RGBA8;
+        TextureFilterType filterType = TextureFilterType::LINEAR;
+        TextureWrapType wrapType = TextureWrapType::REPEAT;
+        TextureFormat format = TextureFormat::RGBA8;
 
 
         PlatformTexture platformTexture;
 
         /// Initialize a texture.
         /// @param data The graphics data the texture needs. If nullptr, the texture's contents are uninitialized.
-        void Initialize(const unsigned char* data);
+        /// \warning The data will be modified and deleted when the function is done! If you want to keep the data,
+        /// copy it before passing it to this method!!!
+        void Initialize(unsigned char* data);
     private:
-        void Pl_Initialize(const unsigned char* data);
+        void Pl_Initialize(unsigned char* data);
     public:
-        /// Creates a texture from data.
-        /// @param data The graphics data to be used. If nullptr, the texture's contents are uninitialized.
-        /// @param width The width of the texture.
-        /// @param height The height of the texture.
-        /// @param filterType The filter type to be used by the texture.
-        /// @param wrapType The wrap method used by the texture.
-        static Texture CreateTexture(const unsigned char* data, unsigned short width, unsigned short height,
-            TextureFilterType filterType = TEXTURE_FILTER_LINEAR, TextureWrapType wrapType = TEXTURE_WRAP_REPEAT);
 
         static constexpr std::vector<unsigned char> GetFormatChannelSizes(TextureFormat format){
+            using enum TextureFormat;
             switch (format)
             {
-            case TEXTURE_FORMAT_RGBA8: return {8,8,8,8};
-            case TEXTURE_FORMAT_RGB8: return {8,8,8};
+            case BGRA8:
+            case RGBA8: return {8,8,8,8};
+            case BGR8:
+            case RGB8: return {8,8,8};
+            case BGR5A1:
+            case RGB5A1: return {5,5,5, 1};
+            case R8: return {8};
+            case NONE: throw std::exception();
             }
             throw std::exception();
         }
